@@ -1,0 +1,140 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{5A9CCBB7-CDCE-444A-B9C6-91969F52BAC8}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>CL.Common</RootNamespace>
+    <AssemblyName>CL.Common</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="COM.Excel">
+      <HintPath>..\NRC.Resource\Assemblies\COM.Excel.dll</HintPath>
+    </Reference>
+    <Reference Include="Excel">
+      <HintPath>..\NRC.Resource\Assemblies\Excel.dll</HintPath>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="ICSharpCode.SharpZipLib, Version=0.85.5.452, Culture=neutral, PublicKeyToken=539f37087683d515, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\NRC.Resource\Assemblies\ICSharpCode.SharpZipLib.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net, Version=1.2.12.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\NRC.Resource\Assemblies\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.VisualBasic" />
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\NRC.Resource\Assemblies\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="NLite, Version=0.9.6.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\NRC.Resource\Assemblies\NLite.dll</HintPath>
+    </Reference>
+    <Reference Include="NPOI">
+      <HintPath>..\NRC.Resource\Assemblies\NPOI.dll</HintPath>
+    </Reference>
+    <Reference Include="NPOI.OOXML">
+      <HintPath>..\NRC.Resource\Assemblies\NPOI.OOXML.dll</HintPath>
+    </Reference>
+    <Reference Include="NPOI.OpenXml4Net">
+      <HintPath>..\NRC.Resource\Assemblies\NPOI.OpenXml4Net.dll</HintPath>
+    </Reference>
+    <Reference Include="NPOI.OpenXmlFormats">
+      <HintPath>..\NRC.Resource\Assemblies\NPOI.OpenXmlFormats.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Zen.Barcode.Core">
+      <HintPath>..\NRC.Resource\Assemblies\Zen.Barcode.Core.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Assistant.cs" />
+    <Compile Include="Commons\Compressor.cs" />
+    <Compile Include="Commons\ConvertHelper.cs" />
+    <Compile Include="Commons\Directory.cs" />
+    <Compile Include="Commons\FileIOHelper.cs" />
+    <Compile Include="Commons\HttpHelper.cs" />
+    <Compile Include="Commons\Lazy.cs" />
+    <Compile Include="Commons\Processor.cs" />
+    <Compile Include="Commons\ReflectHelper.cs" />
+    <Compile Include="Commons\Resource.cs" />
+    <Compile Include="Commons\EmailHeper.cs" />
+    <Compile Include="Commons\Validator.cs" />
+    <Compile Include="DataCache.cs" />
+    <Compile Include="Extension\ArrayExtension.cs" />
+    <Compile Include="Extension\ByteExtension.cs" />
+    <Compile Include="Extension\CacheExtension.cs" />
+    <Compile Include="Extension\DataTableExtension.cs" />
+    <Compile Include="Extension\DateExtension.cs" />
+    <Compile Include="Extension\EnumExtension.cs" />
+    <Compile Include="Extension\NumberExtension.cs" />
+    <Compile Include="Extension\ObjectExtension.cs" />
+    <Compile Include="Extension\StringExtension.cs" />
+    <Compile Include="JSONUtil.cs" />
+    <Compile Include="Manager.cs" />
+    <Compile Include="NPOIStyle.cs" />
+    <Compile Include="NPOIUtil.cs" />
+    <Compile Include="Print\BarcodeCommon.cs" />
+    <Compile Include="Print\BarCodeEntity.cs" />
+    <Compile Include="Print\BarcodeLib.cs" />
+    <Compile Include="Print\code128.cs" />
+    <Compile Include="Print\Code128Content.cs" />
+    <Compile Include="Print\Code128Rendering.cs" />
+    <Compile Include="Print\Code39.cs" />
+    <Compile Include="Print\Code93.cs" />
+    <Compile Include="Print\IBarcode.cs" />
+    <Compile Include="Print\PrintMaterialBarCode.cs" />
+    <Compile Include="Print\TestPlanModel.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="WebZipDownload.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
