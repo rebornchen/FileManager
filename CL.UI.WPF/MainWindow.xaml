@@ -5,31 +5,176 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:ignore="http://www.galasoft.ch/ignore"
         xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+        xmlns:Dialog="clr-namespace:MahApps.Metro.Controls.Dialogs;assembly=MahApps.Metro"
         mc:Ignorable="d ignore"
         Height="600"
         Width="800"
         Title="MVVM Light Application"
                      
         DataContext="{Binding Main, Source={StaticResource Locator}}">
-    
+
     <Window.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
-                <ResourceDictionary Source="Skins/MainSkin.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/FlatSlider.xaml" />
             </ResourceDictionary.MergedDictionaries>
+
+            <Ellipse x:Key="AppThemeMenuIcon"
+                     Width="16"
+                     Height="16"
+                     Fill="{Binding ColorBrush, Mode=OneWay}"
+                     Stroke="{Binding BorderColorBrush, Mode=OneWay}"
+                     StrokeThickness="1"
+                     x:Shared="False" />
+            <Ellipse x:Key="AccentMenuIcon"
+                     Width="16"
+                     Height="16"
+                     Fill="{Binding ColorBrush, Mode=OneWay}"
+                     x:Shared="False" />
+
+            <Style x:Key="AppThemeMenuItemStyle"
+                   BasedOn="{StaticResource MetroMenuItem}"
+                   TargetType="{x:Type MenuItem}">
+                <Setter Property="Command" Value="{Binding ChangeAccentCommand}" />
+                <Setter Property="Header" Value="{Binding Name, Mode=OneWay}" />
+                <Setter Property="Icon" Value="{StaticResource AppThemeMenuIcon}" />
+            </Style>
+
+            <Style x:Key="AccentColorMenuItemStyle"
+                   BasedOn="{StaticResource MetroMenuItem}"
+                   TargetType="{x:Type MenuItem}">
+                <Setter Property="Command" Value="{Binding ChangeAccentCommand}" />
+                <Setter Property="Header" Value="{Binding Name, Mode=OneWay}" />
+                <Setter Property="Icon" Value="{StaticResource AccentMenuIcon}" />
+            </Style>
+
+            <Dialog:CustomDialog x:Key="CustomDialogTest"
+                                 x:Name="CustomTestDialog"
+                                 Title="This dialog allows arbitrary content.">
+                <TextBlock x:Name="MessageTextBlock"
+                           Height="200"
+                           Foreground="{DynamicResource AccentColorBrush}"
+                           Text="{Binding Artists[0].Name}" />
+            </Dialog:CustomDialog>
+
+            <Dialog:CustomDialog x:Key="CustomCloseDialogTest"
+                                 x:Name="CustomCloseDialogTest"
+                                 Title="Custom Dialog which is awaitable">
+
+                <StackPanel>
+                    <TextBlock Height="30"
+                               Foreground="{DynamicResource AccentColorBrush}"
+                               Text="This dialog allows arbitrary content. You have to close it yourself by clicking the close button below."
+                               TextWrapping="Wrap" />
+                    <Button Content="Close Me!" />
+                </StackPanel>
+
+            </Dialog:CustomDialog>
+
         </ResourceDictionary>
     </Window.Resources>
 
     <Grid x:Name="LayoutRoot"  >
         <!--<Button x:Name="button" Content="Button" HorizontalAlignment="Left" Margin="73,104,0,0" VerticalAlignment="Top" Width="75"/>-->
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
 
-        <TextBlock FontSize="36"
+        <Menu Grid.Row="0"
+                Margin="5"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Stretch">
+            <MenuItem Header="Theme"
+                        ItemContainerStyle="{StaticResource AppThemeMenuItemStyle}"
+                        ItemsSource="{Binding AppThemes, Mode=OneWay}" />
+            <MenuItem Header="Accent"
+                        ItemContainerStyle="{StaticResource AccentColorMenuItemStyle}"
+                        ItemsSource="{Binding AccentColors, Mode=OneWay}" />
+            <MenuItem Header="Dialogs">
+                <MenuItem Header="Use Accent?"
+                            IsCheckable="True"
+                            IsChecked="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Controls:MetroWindow}}, Path=UseAccentForDialogs}" />
+                <MenuItem Header="Show Dialogs over TitleBar"
+                            IsCheckable="True"
+                            IsChecked="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Controls:MetroWindow}}, Path=ShowDialogsOverTitleBar}" />
+                <Separator />
+                <!--<MenuItem Click="ShowInputDialog" Header="Show InputDialog" />
+                <MenuItem Click="ShowLoginDialog" Header="Show LoginDialog" />
+                <MenuItem Click="ShowLoginDialogPasswordPreview" Header="Show Password Preview LoginDialog" />
+                <MenuItem Click="ShowLoginDialogOnlyPassword" Header="Show LoginDialog (Only Password)" />
+                <MenuItem Click="ShowLoginDialogWithRememberCheckBox" Header="Show LoginDialog (With Remember CheckBox)" />
+                <MenuItem Click="ShowMessageDialog" Header="Show MessageDialog" />
+                <MenuItem Click="ShowLimitedMessageDialog" Header="Show MessageDialog (Limited Size)" />
+                <MenuItem Click="ShowProgressDialog" Header="Show ProgressDialog" />
+                <MenuItem Click="ShowCustomDialog" Header="Show CustomDialog" />
+                <MenuItem Click="ShowAwaitCustomDialog" Header="Await CustomDialog" />-->
+                <Separator />
+                <!--<MenuItem Click="ShowInputDialogOutside" Header="Show ShowInputDialog Externally" />
+                <MenuItem Click="ShowLoginDialogOutside" Header="Show ShowLoginDialog Externally" />
+                <MenuItem Click="ShowMessageDialogOutside" Header="Show ShowMessageDialog Externally" />
+                <MenuItem Click="ShowDialogOutside" Header="Show CustomDialog Externally" />-->
+                <Separator />
+                <MenuItem Command="{Binding ShowInputDialogCommand}" Header="Show InputDialog via VM" />
+                <MenuItem Command="{Binding ShowLoginDialogCommand}" Header="Show LoginDialog via VM ..." />
+                <MenuItem Header="Show MessageDialog via VM">
+                    <MenuItem Command="{Binding ShowMessageDialogCommand}" CommandParameter="DISPATCHER_THREAD" Header="... from Main Thread" />
+                    <MenuItem Command="{Binding ShowMessageDialogCommand}" CommandParameter="BACKGROUND_THREAD" Header="... from Background Thread" />
+                </MenuItem>
+
+                <MenuItem Command="{Binding ShowProgressDialogCommand}" Header="Show ProgressDialog via VM" />
+                <MenuItem Command="{Binding ShowCustomDialogCommand}" Header="Show CustomDialog via VM" />
+            </MenuItem>
+            <MenuItem Header="Window">
+                <MenuItem Header="ShowInTaskbar"
+                            IsCheckable="True"
+                            IsChecked="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Controls:MetroWindow}}, Path=ShowInTaskbar}" />
+                <MenuItem Header="Topmost"
+                            IsCheckable="True"
+                            IsChecked="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Controls:MetroWindow}}, Path=Topmost}" />
+                <MenuItem Header="Ignore taskbar on maximize"
+                            IsCheckable="True"
+                            IsChecked="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Controls:MetroWindow}}, Path=IgnoreTaskbarOnMaximize}" />
+                <MenuItem Header="Toggle FullScreen (no taskbar, window style = none)"
+                            IsCheckable="True"
+                            IsChecked="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Controls:MetroWindow}}, Path=ToggleFullScreen}" />
+                <Separator />
+                <!--<MenuItem Click="MenuWindowWithoutBorderOnClick" Header="Window without Border" />
+                <MenuItem Click="MenuWindowWithBorderOnClick" Header="Window with Border" />
+                <MenuItem Click="MenuWindowWithGlowOnClick" Header="Window with Glow" />
+                <MenuItem Click="MenuWindowWithShadowOnClick" Header="Window with drop shadow" />
+                <MenuItem Click="LaunchSizeToContentDemo" Header="Window with SizeToContent" />-->
+                <Separator />
+                <MenuItem x:Name="ShowSeparatorsMI"
+                            Header="ShowSeparators (RightWindowCommands)"
+                            IsCheckable="True"
+                            IsChecked="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Controls:MetroWindow}}, Path=RightWindowCommands.ShowSeparators}" />
+                <MenuItem Header="ShowLastSeparator in (RightWindowCommands)"
+                            IsCheckable="True"
+                            IsChecked="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Controls:MetroWindow}}, Path=RightWindowCommands.ShowLastSeparator}"
+                            IsEnabled="{Binding ElementName=ShowSeparatorsMI, Path=IsChecked, Mode=OneWay}" />
+                <Separator />
+                <!--<MenuItem Header="Window icon: scale down larger frame"
+                          Command="{Binding ToggleIconScalingCommand}"
+                          CommandParameter="{x:Static Controls:MultiFrameImageMode.ScaleDownLargerFrame}"
+                          IsChecked="{Binding IsScaleDownLargerFrame, Mode=OneWay}"
+                          IsCheckable="True" />
+                <MenuItem Header="Window icon: no scale, smaller frame"
+                          Command="{Binding ToggleIconScalingCommand}"
+                          CommandParameter="{x:Static Controls:MultiFrameImageMode.NoScaleSmallerFrame}"
+                          IsChecked="{Binding IsNoScaleSmallerFrame, Mode=OneWay}"
+                          IsCheckable="True" />-->
+            </MenuItem>
+        </Menu>
+
+        <!--<TextBlock FontSize="36"
                    FontWeight="Bold"
                    Foreground="Purple"
                    Text="{Binding WelcomeTitle}"
                    VerticalAlignment="Center"
                    HorizontalAlignment="Center"
-                   TextWrapping="Wrap" />
+                   TextWrapping="Wrap" />-->
 
     </Grid>
     <Controls:MetroWindow.RightWindowCommands>
