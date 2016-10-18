@@ -167,6 +167,18 @@
                           IsCheckable="True" />-->
             </MenuItem>
         </Menu>
+        <DockPanel 
+                Margin="5"
+                VerticalAlignment="Stretch" LastChildFill="False" Grid.Row="1" >
+            <StackPanel Width="100">
+                <StackPanel Height="30" Orientation="Horizontal"/>
+                <StackPanel>
+                    <Label x:Name="label" Content="Label"/>
+                    <Label x:Name="label1" Content="Label"/>
+                    <Label x:Name="label2" Content="Label"/>
+                </StackPanel>
+            </StackPanel>
+        </DockPanel>
 
         <!--<TextBlock FontSize="36"
                    FontWeight="Bold"

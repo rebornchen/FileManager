@@ -18,6 +18,8 @@ namespace CL.UI.WPF
             Closing += (s, e) => ViewModelLocator.Cleanup();
         }
 
+
+
         
     }
 }
