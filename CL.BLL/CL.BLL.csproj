@@ -52,11 +52,15 @@
   <ItemGroup>
     <Compile Include="Base.cs" />
     <Compile Include="CategoryBiz.cs" />
+    <Compile Include="ConfigBiz.cs" />
+    <Compile Include="FileCategoryRelationsBiz.cs" />
+    <Compile Include="FilesBiz.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RegionBiz.cs" />
     <Compile Include="RSSNEmailBiz.cs" />
     <Compile Include="SSNBiz.cs" />
     <Compile Include="SSNEmailBiz.cs" />
+    <Compile Include="UsersBiz.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\CL.Common\CL.Common.csproj">

@@ -11,6 +11,7 @@ using NLite.Data;
 using CL.Model.Interfaces;
 using CL.Common;
 using CL.Model;
+using System.Data;
 
 namespace CL.BLL
 {
@@ -1168,6 +1169,28 @@ namespace CL.BLL
 
         #endregion
 
+
+        #region 公用功能
+        /// <summary>
+        /// 获取最大值
+        /// </summary>
+        /// <param name="fieldname"></param>
+        /// <param name="tablename"></param>
+        /// <returns></returns>
+        protected int GetMaxId(string fieldname, string tablename)
+        {
+
+            string idField = fieldname;
+            string tableName = tablename;
+            string sql = String.Format("select isnull(MAX({0}),0) as maxId from {1}", idField, tableName);
+
+            using (var ctx = new DbContext(cfg))
+            {
+                DataTable dt = ctx.DbHelper.ExecuteDataTable(sql);
+                return Convert.ToInt32(dt.Rows[0][0]);
+            }
+        }
+        #endregion
     }
 
 

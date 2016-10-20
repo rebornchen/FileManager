@@ -22,13 +22,7 @@ namespace CL.BLL
 
             string idField = "ICId";
             string tableName = "T_Category";
-            string sql = String.Format("select isnull(MAX({0}),0) as maxId from {1}", idField, tableName);
-
-            using (var ctx = new DbContext(cfg))
-            {
-                DataTable dt = ctx.DbHelper.ExecuteDataTable(sql);
-                return Convert.ToInt32(dt.Rows[0][0]);
-            }
+            return base.GetMaxId(idField, tableName);
         }
 
         /// <summary>
