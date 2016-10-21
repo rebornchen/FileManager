@@ -1,4 +1,4 @@
-﻿<UserControl x:Class="CL.UI.WPF.Controls.UCAccordionNav"
+﻿<UserControl
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -6,30 +6,20 @@
              xmlns:local="clr-namespace:CL.UI.WPF.Controls"
              xmlns:layoutToolkit="clr-namespace:System.Windows.Controls;assembly=DotNetProjects.Layout.Toolkit"
              xmlns:system="clr-namespace:System;assembly=mscorlib"
+             xmlns:Primitives="clr-namespace:System.Windows.Controls.Primitives;assembly=DotNetProjects.Layout.Toolkit" x:Name="userControl" x:Class="CL.UI.WPF.Controls.UCAccordionNav"
              mc:Ignorable="d" 
-             d:DesignHeight="300" d:DesignWidth="150">
+             d:DesignHeight="300" d:DesignWidth="150" Background="{DynamicResource {x:Static SystemColors.ScrollBarBrushKey}}">
+    <UserControl.Resources>
+        <Style x:Key="TextBlockStyle"   TargetType="{x:Type TextBlock}">
+            <Setter Property="Margin" Value="5,3"/>
+        </Style>
+    </UserControl.Resources>
     <Grid DataContext="{Binding Source={StaticResource Locator}}">
-        <layoutToolkit:Accordion x:Name="accordionNav" Grid.Row="0" Margin="0,0,0,0">
-            <layoutToolkit:AccordionItem Header="item1" HorizontalAlignment="Stretch" HorizontalContentAlignment="Stretch" DataContext="{Binding UCAccordionNavigateModel, Mode=OneWay}">
-                <StackPanel HorizontalAlignment="Stretch">
-                    <Grid HorizontalAlignment="Stretch">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition />
-                            <ColumnDefinition />
-                        </Grid.ColumnDefinitions>
-                        <Label Grid.Column="0" Grid.Row="0" Content="name" MouseDown="Label_MouseDown" />
-                        <TextBox Grid.Column="1" Grid.Row="0" Text="title" />
-                    </Grid>
-                    <DockPanel>
-                        <Button x:Name="button" Height="100" Width="200" >Grow Up</Button>
-                    </DockPanel>
-                </StackPanel>
-            </layoutToolkit:AccordionItem>
-            <layoutToolkit:AccordionItem Header="item2" HorizontalAlignment="Stretch" HorizontalContentAlignment="Stretch">
-                <StackPanel HorizontalAlignment="Stretch">
-                    <Grid HorizontalAlignment="Stretch">
-                        <TextBox Grid.Column="0" Grid.Row="0" Text="title" />
-                    </Grid>
+        <layoutToolkit:Accordion x:Name="accordionNav" Grid.Row="0" Margin="0,0,0,0" Background="{Binding Background, ElementName=userControl}" BorderBrush="{DynamicResource {x:Static SystemColors.WindowFrameBrushKey}}" Foreground="{DynamicResource {x:Static SystemColors.WindowTextBrushKey}}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" >
+            <layoutToolkit:AccordionItem x:Name="accordionItem" Header="item1" HorizontalAlignment="Stretch" HorizontalContentAlignment="Stretch" DataContext="{Binding UCAccordionNavigateModel, Mode=OneWay}" Background="{Binding Background, ElementName=accordionNav}" >
+                <StackPanel Background="{Binding Background, ElementName=accordionItem}" >
+                    <TextBlock x:Name="textBlock" TextWrapping="Wrap" Text="TextBlock" Style="{DynamicResource TextBlockStyle}"/>
+                    <TextBlock x:Name="textBlock1" TextWrapping="Wrap" Text="TextBlock" Style="{DynamicResource TextBlockStyle}"/>
                 </StackPanel>
             </layoutToolkit:AccordionItem>
         </layoutToolkit:Accordion>

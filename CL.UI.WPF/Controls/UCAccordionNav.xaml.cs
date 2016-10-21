@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using MahApps.Metro;
 
 namespace CL.UI.WPF.Controls
 {
@@ -110,8 +111,21 @@ namespace CL.UI.WPF.Controls
             {
                 AccordionItem aitem = new AccordionItem();
                 aitem.Header = item.Key;
+
+
+                var theme = ThemeManager.DetectAppStyle(Application.Current);
+
+                aitem.Background = theme.Item1.Resources["WindowBackgroundBrush"] as Brush;
+                aitem.Foreground = theme.Item1.Resources["LabelTextBrush"] as Brush;
+
+
                 this.accordionNav.Items.Add(aitem);
                 StackPanel stackPanel = new StackPanel();
+
+                stackPanel.HorizontalAlignment = HorizontalAlignment.Stretch;
+                stackPanel.VerticalAlignment = VerticalAlignment.Stretch;
+                stackPanel.Background = theme.Item1.Resources["ControlBackgroundBrush"] as Brush;
+
                 stackPanel.Orientation = Orientation.Vertical;
                 foreach (var child in item.Value)
                 {

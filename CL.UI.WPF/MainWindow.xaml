@@ -195,13 +195,18 @@
         <DockPanel 
                 Margin="5"
                 VerticalAlignment="Stretch" LastChildFill="False" Grid.Row="1" DataContext="{Binding Source={StaticResource Locator}}" >
-            <StackPanel Width="100">
-                <StackPanel Height="30" Orientation="Horizontal">
-                    <TextBlock x:Name="textBlock" TextWrapping="Wrap" Text="{Binding UCAccordionNavigateModel.NavItemList}"/>
-                </StackPanel>
-                <StackPanel>
-                    <Controls1:UCAccordionNav ItemList="{Binding UCAccordionNavigateModel.NavItemList, Mode=OneWay}" SelectedValue="{Binding UCAccordionNavigateModel.SelectedValue}"/>
-                </StackPanel>
+            <StackPanel x:Name="stackPanel" Width="100">
+
+                <Grid Height="{Binding ActualHeight, ElementName=stackPanel}" >
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="30"/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <StackPanel Height="30" Orientation="Horizontal">
+                        <TextBlock x:Name="textBlock" TextWrapping="Wrap" Text="{Binding UCAccordionNavigateModel.NavItemList}"/>
+                    </StackPanel>
+                    <Controls1:UCAccordionNav x:Name="uCAccordionNav" ItemList="{Binding UCAccordionNavigateModel.NavItemList, Mode=OneWay}" SelectedValue="{Binding UCAccordionNavigateModel.SelectedValue}" Margin="0,-30,0,0" Grid.Row="1" Background="{Binding Background, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Controls:MetroWindow}}}"/>
+                </Grid>
             </StackPanel>
         </DockPanel>
 
