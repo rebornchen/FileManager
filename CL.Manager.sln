@@ -19,6 +19,30 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CL.Test", "CL.Test\CL.Test.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CL.UI.WPF", "CL.UI.WPF\CL.UI.WPF.csproj", "{89A46DB4-813B-4F4C-8905-31857F78C764}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CL.FileManager.Win", "CL.FileManager.Win\CL.FileManager.Win.csproj", "{88CCFA67-0421-4660-9A94-53D949187AC1}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DLL", "DLL", "{5598C593-E90D-4CB8-9D22-C0D5503B7F7A}"
+	ProjectSection(SolutionItems) = preProject
+		DLL\COM.Excel.dll = DLL\COM.Excel.dll
+		DLL\cscui.dll = DLL\cscui.dll
+		DLL\CSkin.dll = DLL\CSkin.dll
+		DLL\CSkin.XML = DLL\CSkin.XML
+		DLL\DotNetProjects.Layout.Toolkit.dll = DLL\DotNetProjects.Layout.Toolkit.dll
+		DLL\ELinq.dll = DLL\ELinq.dll
+		DLL\ICSharpCode.SharpZipLib.dll = DLL\ICSharpCode.SharpZipLib.dll
+		DLL\log4net.dll = DLL\log4net.dll
+		DLL\Newtonsoft.Json.dll = DLL\Newtonsoft.Json.dll
+		DLL\Newtonsoft.Json.xml = DLL\Newtonsoft.Json.xml
+		DLL\NLite.dll = DLL\NLite.dll
+		DLL\NPOI.dll = DLL\NPOI.dll
+		DLL\NPOI.OOXML.dll = DLL\NPOI.OOXML.dll
+		DLL\NPOI.OpenXml4Net.dll = DLL\NPOI.OpenXml4Net.dll
+		DLL\NPOI.OpenXmlFormats.dll = DLL\NPOI.OpenXmlFormats.dll
+		DLL\System.Data.SQLite.dll = DLL\System.Data.SQLite.dll
+		DLL\System.Windows.Controls.Layout.Toolkit.XML = DLL\System.Windows.Controls.Layout.Toolkit.XML
+		DLL\Zen.Barcode.Core.dll = DLL\Zen.Barcode.Core.dll
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -113,6 +137,18 @@ Global
 		{89A46DB4-813B-4F4C-8905-31857F78C764}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{89A46DB4-813B-4F4C-8905-31857F78C764}.Release|x86.ActiveCfg = Release|Any CPU
 		{89A46DB4-813B-4F4C-8905-31857F78C764}.Release|x86.Build.0 = Release|Any CPU
+		{88CCFA67-0421-4660-9A94-53D949187AC1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{88CCFA67-0421-4660-9A94-53D949187AC1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{88CCFA67-0421-4660-9A94-53D949187AC1}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{88CCFA67-0421-4660-9A94-53D949187AC1}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{88CCFA67-0421-4660-9A94-53D949187AC1}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{88CCFA67-0421-4660-9A94-53D949187AC1}.Debug|x86.Build.0 = Debug|Any CPU
+		{88CCFA67-0421-4660-9A94-53D949187AC1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{88CCFA67-0421-4660-9A94-53D949187AC1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{88CCFA67-0421-4660-9A94-53D949187AC1}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{88CCFA67-0421-4660-9A94-53D949187AC1}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{88CCFA67-0421-4660-9A94-53D949187AC1}.Release|x86.ActiveCfg = Release|Any CPU
+		{88CCFA67-0421-4660-9A94-53D949187AC1}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
