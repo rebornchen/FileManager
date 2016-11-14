@@ -1,4 +1,5 @@
 ﻿using CCWin;
+using CL.UI.Logic;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -31,9 +32,28 @@ namespace CL.FileManager.Win
 
         #endregion
 
+        #region 临时处理
         private void CategoryToolStripMenuItem_Click(object sender, EventArgs e)
         {
             controlCategory1.LoadCategory();
+        }
+        #endregion
+
+        private void 导入ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            //UILogic.GetFileModelByFilePath()
+        }
+
+        private void FrmMain_DragEnter(object sender, DragEventArgs e)
+        {
+            Array arr = ((System.Array)e.Data.GetData(DataFormats.FileDrop));
+
+            foreach (var a in arr   )
+            {
+                System.Console.WriteLine(a.ToString());
+            }
+
+            //string path = ((System.Array)e.Data.GetData(DataFormats.FileDrop)).GetValue(0).ToString();
         }
     }
 }

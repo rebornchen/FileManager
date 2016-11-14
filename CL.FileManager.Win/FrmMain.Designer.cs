@@ -31,17 +31,17 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmMain));
             this.skinMenuStrip1 = new CCWin.SkinControl.SkinMenuStrip();
             this.FileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.ExitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.skinPnlBottom = new CCWin.SkinControl.SkinPanel();
-            this.skinSplitContainerMain = new CCWin.SkinControl.SkinSplitContainer();
-            this.SettingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.CategoryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.controlCategory1 = new CL.FileManager.Win.Controls.ControlCategory();
-            this.设置路径ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.导入ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.导出ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ExitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.SettingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.CategoryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.设置路径ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.操作ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.文件检查ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.skinPnlBottom = new CCWin.SkinControl.SkinPanel();
+            this.skinSplitContainerMain = new CCWin.SkinControl.SkinSplitContainer();
+            this.controlCategory1 = new CL.FileManager.Win.Controls.ControlCategory();
             this.skinMenuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.skinSplitContainerMain)).BeginInit();
             this.skinSplitContainerMain.Panel1.SuspendLayout();
@@ -87,7 +87,7 @@
             this.skinMenuStrip1.Location = new System.Drawing.Point(4, 28);
             this.skinMenuStrip1.Name = "skinMenuStrip1";
             this.skinMenuStrip1.RadiusStyle = CCWin.SkinClass.RoundStyle.All;
-            this.skinMenuStrip1.Size = new System.Drawing.Size(526, 25);
+            this.skinMenuStrip1.Size = new System.Drawing.Size(736, 25);
             this.skinMenuStrip1.SkinAllColor = true;
             this.skinMenuStrip1.TabIndex = 0;
             this.skinMenuStrip1.Text = "skinMenuStrip1";
@@ -106,39 +106,25 @@
             this.FileToolStripMenuItem.Size = new System.Drawing.Size(44, 21);
             this.FileToolStripMenuItem.Text = "文件";
             // 
+            // 导入ToolStripMenuItem
+            // 
+            this.导入ToolStripMenuItem.Name = "导入ToolStripMenuItem";
+            this.导入ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.导入ToolStripMenuItem.Text = "导入";
+            this.导入ToolStripMenuItem.Click += new System.EventHandler(this.导入ToolStripMenuItem_Click);
+            // 
+            // 导出ToolStripMenuItem
+            // 
+            this.导出ToolStripMenuItem.Name = "导出ToolStripMenuItem";
+            this.导出ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.导出ToolStripMenuItem.Text = "导出";
+            // 
             // ExitToolStripMenuItem
             // 
             this.ExitToolStripMenuItem.Name = "ExitToolStripMenuItem";
             this.ExitToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.ExitToolStripMenuItem.Text = "退出";
             this.ExitToolStripMenuItem.Click += new System.EventHandler(this.ExitToolStripMenuItem_Click);
-            // 
-            // skinPnlBottom
-            // 
-            this.skinPnlBottom.BackColor = System.Drawing.Color.Transparent;
-            this.skinPnlBottom.ControlState = CCWin.SkinClass.ControlState.Normal;
-            this.skinPnlBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.skinPnlBottom.DownBack = null;
-            this.skinPnlBottom.Location = new System.Drawing.Point(4, 297);
-            this.skinPnlBottom.MouseBack = null;
-            this.skinPnlBottom.Name = "skinPnlBottom";
-            this.skinPnlBottom.NormlBack = null;
-            this.skinPnlBottom.Size = new System.Drawing.Size(526, 30);
-            this.skinPnlBottom.TabIndex = 2;
-            // 
-            // skinSplitContainerMain
-            // 
-            this.skinSplitContainerMain.Cursor = System.Windows.Forms.Cursors.Default;
-            this.skinSplitContainerMain.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.skinSplitContainerMain.Location = new System.Drawing.Point(4, 53);
-            this.skinSplitContainerMain.Name = "skinSplitContainerMain";
-            // 
-            // skinSplitContainerMain.Panel1
-            // 
-            this.skinSplitContainerMain.Panel1.Controls.Add(this.controlCategory1);
-            this.skinSplitContainerMain.Size = new System.Drawing.Size(526, 244);
-            this.skinSplitContainerMain.SplitterDistance = 174;
-            this.skinSplitContainerMain.TabIndex = 3;
             // 
             // SettingsToolStripMenuItem
             // 
@@ -152,40 +138,15 @@
             // CategoryToolStripMenuItem
             // 
             this.CategoryToolStripMenuItem.Name = "CategoryToolStripMenuItem";
-            this.CategoryToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.CategoryToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
             this.CategoryToolStripMenuItem.Text = "类型设置";
             this.CategoryToolStripMenuItem.Click += new System.EventHandler(this.CategoryToolStripMenuItem_Click);
-            // 
-            // controlCategory1
-            // 
-            this.controlCategory1.BackColor = System.Drawing.Color.Transparent;
-            this.controlCategory1.ControlState = CCWin.SkinClass.ControlState.Normal;
-            this.controlCategory1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.controlCategory1.DownBack = null;
-            this.controlCategory1.Location = new System.Drawing.Point(0, 0);
-            this.controlCategory1.MouseBack = null;
-            this.controlCategory1.Name = "controlCategory1";
-            this.controlCategory1.NormlBack = null;
-            this.controlCategory1.Size = new System.Drawing.Size(174, 244);
-            this.controlCategory1.TabIndex = 0;
             // 
             // 设置路径ToolStripMenuItem
             // 
             this.设置路径ToolStripMenuItem.Name = "设置路径ToolStripMenuItem";
-            this.设置路径ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.设置路径ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
             this.设置路径ToolStripMenuItem.Text = "设置路径";
-            // 
-            // 导入ToolStripMenuItem
-            // 
-            this.导入ToolStripMenuItem.Name = "导入ToolStripMenuItem";
-            this.导入ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.导入ToolStripMenuItem.Text = "导入";
-            // 
-            // 导出ToolStripMenuItem
-            // 
-            this.导出ToolStripMenuItem.Name = "导出ToolStripMenuItem";
-            this.导出ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.导出ToolStripMenuItem.Text = "导出";
             // 
             // 操作ToolStripMenuItem
             // 
@@ -198,20 +159,62 @@
             // 文件检查ToolStripMenuItem
             // 
             this.文件检查ToolStripMenuItem.Name = "文件检查ToolStripMenuItem";
-            this.文件检查ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.文件检查ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
             this.文件检查ToolStripMenuItem.Text = "文件检查";
+            // 
+            // skinPnlBottom
+            // 
+            this.skinPnlBottom.BackColor = System.Drawing.Color.Transparent;
+            this.skinPnlBottom.ControlState = CCWin.SkinClass.ControlState.Normal;
+            this.skinPnlBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.skinPnlBottom.DownBack = null;
+            this.skinPnlBottom.Location = new System.Drawing.Point(4, 420);
+            this.skinPnlBottom.MouseBack = null;
+            this.skinPnlBottom.Name = "skinPnlBottom";
+            this.skinPnlBottom.NormlBack = null;
+            this.skinPnlBottom.Size = new System.Drawing.Size(736, 30);
+            this.skinPnlBottom.TabIndex = 2;
+            // 
+            // skinSplitContainerMain
+            // 
+            this.skinSplitContainerMain.Cursor = System.Windows.Forms.Cursors.Default;
+            this.skinSplitContainerMain.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.skinSplitContainerMain.Location = new System.Drawing.Point(4, 53);
+            this.skinSplitContainerMain.Name = "skinSplitContainerMain";
+            // 
+            // skinSplitContainerMain.Panel1
+            // 
+            this.skinSplitContainerMain.Panel1.Controls.Add(this.controlCategory1);
+            this.skinSplitContainerMain.Size = new System.Drawing.Size(736, 367);
+            this.skinSplitContainerMain.SplitterDistance = 243;
+            this.skinSplitContainerMain.TabIndex = 3;
+            // 
+            // controlCategory1
+            // 
+            this.controlCategory1.BackColor = System.Drawing.Color.Transparent;
+            this.controlCategory1.ControlState = CCWin.SkinClass.ControlState.Normal;
+            this.controlCategory1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.controlCategory1.DownBack = null;
+            this.controlCategory1.Location = new System.Drawing.Point(0, 0);
+            this.controlCategory1.MouseBack = null;
+            this.controlCategory1.Name = "controlCategory1";
+            this.controlCategory1.NormlBack = null;
+            this.controlCategory1.Size = new System.Drawing.Size(243, 367);
+            this.controlCategory1.TabIndex = 0;
             // 
             // FrmMain
             // 
+            this.AllowDrop = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(534, 331);
+            this.ClientSize = new System.Drawing.Size(744, 454);
             this.Controls.Add(this.skinSplitContainerMain);
             this.Controls.Add(this.skinPnlBottom);
             this.Controls.Add(this.skinMenuStrip1);
             this.MainMenuStrip = this.skinMenuStrip1;
             this.Name = "FrmMain";
             this.Text = "文件管理";
+            this.DragEnter += new System.Windows.Forms.DragEventHandler(this.FrmMain_DragEnter);
             this.skinMenuStrip1.ResumeLayout(false);
             this.skinMenuStrip1.PerformLayout();
             this.skinSplitContainerMain.Panel1.ResumeLayout(false);
