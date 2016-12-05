@@ -6,7 +6,7 @@ using CL.Model;
 
 namespace CL.BLL
 {
-    public class FilesBiz : CL.BLL.Base<Category>
+    public class FilesBiz : CL.BLL.Base<Files>
     {
     }
 }

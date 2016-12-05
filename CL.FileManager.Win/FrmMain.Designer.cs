@@ -42,7 +42,9 @@
             this.skinPnlBottom = new CCWin.SkinControl.SkinPanel();
             this.skinSplitContainerMain = new CCWin.SkinControl.SkinSplitContainer();
             this.controlCategory1 = new CL.FileManager.Win.Controls.ControlCategory();
+            this.lblMessage = new CCWin.SkinControl.SkinLabel();
             this.skinMenuStrip1.SuspendLayout();
+            this.skinPnlBottom.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.skinSplitContainerMain)).BeginInit();
             this.skinSplitContainerMain.Panel1.SuspendLayout();
             this.skinSplitContainerMain.SuspendLayout();
@@ -109,20 +111,20 @@
             // 导入ToolStripMenuItem
             // 
             this.导入ToolStripMenuItem.Name = "导入ToolStripMenuItem";
-            this.导入ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.导入ToolStripMenuItem.Size = new System.Drawing.Size(100, 22);
             this.导入ToolStripMenuItem.Text = "导入";
             this.导入ToolStripMenuItem.Click += new System.EventHandler(this.导入ToolStripMenuItem_Click);
             // 
             // 导出ToolStripMenuItem
             // 
             this.导出ToolStripMenuItem.Name = "导出ToolStripMenuItem";
-            this.导出ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.导出ToolStripMenuItem.Size = new System.Drawing.Size(100, 22);
             this.导出ToolStripMenuItem.Text = "导出";
             // 
             // ExitToolStripMenuItem
             // 
             this.ExitToolStripMenuItem.Name = "ExitToolStripMenuItem";
-            this.ExitToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.ExitToolStripMenuItem.Size = new System.Drawing.Size(100, 22);
             this.ExitToolStripMenuItem.Text = "退出";
             this.ExitToolStripMenuItem.Click += new System.EventHandler(this.ExitToolStripMenuItem_Click);
             // 
@@ -165,6 +167,7 @@
             // skinPnlBottom
             // 
             this.skinPnlBottom.BackColor = System.Drawing.Color.Transparent;
+            this.skinPnlBottom.Controls.Add(this.lblMessage);
             this.skinPnlBottom.ControlState = CCWin.SkinClass.ControlState.Normal;
             this.skinPnlBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.skinPnlBottom.DownBack = null;
@@ -201,6 +204,20 @@
             this.controlCategory1.NormlBack = null;
             this.controlCategory1.Size = new System.Drawing.Size(243, 367);
             this.controlCategory1.TabIndex = 0;
+            this.controlCategory1.OnCategroyButtonClick += new System.EventHandler(this.controlCategory1_OnCategroyButtonClick);
+            this.controlCategory1.OnFileDragDrop += new System.EventHandler(this.controlCategory1_OnFileDragDrop);
+            // 
+            // lblMessage
+            // 
+            this.lblMessage.AutoSize = true;
+            this.lblMessage.BackColor = System.Drawing.Color.Transparent;
+            this.lblMessage.BorderColor = System.Drawing.Color.White;
+            this.lblMessage.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.lblMessage.ForeColor = System.Drawing.Color.Fuchsia;
+            this.lblMessage.Location = new System.Drawing.Point(3, 9);
+            this.lblMessage.Name = "lblMessage";
+            this.lblMessage.Size = new System.Drawing.Size(0, 17);
+            this.lblMessage.TabIndex = 0;
             // 
             // FrmMain
             // 
@@ -214,9 +231,10 @@
             this.MainMenuStrip = this.skinMenuStrip1;
             this.Name = "FrmMain";
             this.Text = "文件管理";
-            this.DragEnter += new System.Windows.Forms.DragEventHandler(this.FrmMain_DragEnter);
             this.skinMenuStrip1.ResumeLayout(false);
             this.skinMenuStrip1.PerformLayout();
+            this.skinPnlBottom.ResumeLayout(false);
+            this.skinPnlBottom.PerformLayout();
             this.skinSplitContainerMain.Panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.skinSplitContainerMain)).EndInit();
             this.skinSplitContainerMain.ResumeLayout(false);
@@ -240,6 +258,7 @@
         private System.Windows.Forms.ToolStripMenuItem 设置路径ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 操作ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 文件检查ToolStripMenuItem;
+        private CCWin.SkinControl.SkinLabel lblMessage;
     }
 }
 

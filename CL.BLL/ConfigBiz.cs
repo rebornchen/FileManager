@@ -6,7 +6,7 @@ using System.Text;
 
 namespace CL.BLL
 {
-    public class ConfigBiz : CL.BLL.Base<Category>
+    public class ConfigBiz : CL.BLL.Base<Config>
     {
     }
 }

@@ -6,7 +6,7 @@ using CL.Model;
 
 namespace CL.BLL
 {
-    public class UsersBiz : CL.BLL.Base<Category>
+    public class UsersBiz : CL.BLL.Base<Users>
     {
     }
 }
