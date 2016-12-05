@@ -73,6 +73,12 @@
     <Compile Include="Controls\ControlCategory.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="FrmAddFiles.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmAddFiles.Designer.cs">
+      <DependentUpon>FrmAddFiles.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmMain.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -81,6 +87,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="FrmAddFiles.resx">
+      <DependentUpon>FrmAddFiles.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmMain.resx">
       <DependentUpon>FrmMain.cs</DependentUpon>
     </EmbeddedResource>
