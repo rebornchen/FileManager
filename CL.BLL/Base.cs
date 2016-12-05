@@ -40,13 +40,22 @@ namespace CL.BLL
             {
                 if (_cfg == null)
                 {
+                    //System.Data.Common.DbConnection conn =
+                    //    System.Data.Common.DbProviderFactories.GetFactory("System.Data.SQLite").CreateConnection();
+
+                    //conn.ConnectionString = "Data Source=filedb.db;Persist Security Info=True";
+                    //conn.Open();
+
                     try
                     {
                         _cfg = DbConfiguration
                         .Configure("SQLiteELinq")
+                        //.ConfigureSQLite("filedb.db")
                         .SetSqlLogger(() => new SqlLog(Console.Out))
                         .AddFromAssemblyOf<IEntity>(p => typeof(IEntity)
                         .IsAssignableFrom(p));
+
+                       // DbConfiguration.ConfigureSQLite("filedb.db")
                     }
                     catch (Exception ex)
                     {

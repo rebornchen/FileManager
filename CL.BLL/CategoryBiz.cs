@@ -33,5 +33,15 @@ namespace CL.BLL
         {
             return GetMaxId() + 1;
         }
+
+        /// <summary>
+        /// 获取所有的顶级类型
+        /// </summary>
+        /// <returns></returns>
+        public List<Model.Category> GetAllTopCategory()
+        {
+            return GetAll();
+            //return GetList(c => c.IParentId == 0);
+        }
     }
 }
