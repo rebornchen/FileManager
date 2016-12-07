@@ -6,7 +6,7 @@ using System.Text;
 
 namespace CL.BLL
 {
-    public class FileCategoryRelationsBiz : CL.BLL.Base<Category>
+    public class FileCategoryRelationsBiz : CL.BLL.Base<FileCategoryRelations>
     {
     }
 }

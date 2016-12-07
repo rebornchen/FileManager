@@ -1,4 +1,5 @@
 ﻿using CCWin;
+using CL.BLL;
 using CL.Model;
 using CL.UI.Logic;
 using System;
@@ -15,6 +16,8 @@ namespace CL.FileManager.Win
 {
     public partial class FrmMain : CCSkinMain
     {
+        private CategoryBiz categoryBiz = new CategoryBiz();
+
         public FrmMain()
         {
             InitializeComponent();
@@ -36,7 +39,8 @@ namespace CL.FileManager.Win
         #region 临时处理
         private void CategoryToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            controlCategory1.LoadCategory();
+            List<Category> categories = categoryBiz.GetAllTopCategory();
+            controlCategory1.LoadCategory(categories);
         }
         #endregion
 
@@ -45,10 +49,6 @@ namespace CL.FileManager.Win
             //UILogic.GetFileModelByFilePath()
         }
 
-        private void FrmMain_DragEnter(object sender, DragEventArgs e)
-        {
-
-        }
 
         /// <summary>
         /// 类型按钮点击事件
@@ -62,24 +62,48 @@ namespace CL.FileManager.Win
             //处理
         }
 
-        private void controlCategory1_OnFileDragDrop(object sender, EventArgs e)
+        #region 文件拖放处理
+
+        
+
+        private void FrmMain_DragDrop(object sender, DragEventArgs e)
         {
-            CL.FileManager.Win.Controls.ControlCategory.FileDragDropArgs
-                args = (CL.FileManager.Win.Controls.ControlCategory.FileDragDropArgs)e;
-            Category c = args.FileCategory;
-            System.Array arr = args.FlileArray;
+            Array arr = ((System.Array)e.Data.GetData(System.Windows.Forms.DataFormats.FileDrop));
 
-            foreach (var a in arr)
-            {
-                if(System.IO.File.Exists(a.ToString()))
-                {
-                    BLL.FilesBiz fileBiz = new BLL.FilesBiz();
-                    var files = CL.UI.Logic.UILogic.GetFileModelByFilePath(a.ToString());
-                    fileBiz.Add(files);
-                }
-            }
+            var list = SaveFilesToDB(arr);
 
-            lblMessage.Text = "OK";
+            FrmAddFilesCategory frmAddFilesCategory = new FrmAddFilesCategory();
+            frmAddFilesCategory.SetFiles(list);
+
+           
+            List<Category> categories = categoryBiz.GetAllTopCategory();
+            frmAddFilesCategory.SetCategory(categories);
+
+            frmAddFilesCategory.ShowDialog();
+
         }
+        #endregion 文件拖放处理
+
+        #region 私有方法
+        /// <summary>
+        /// 根据文件地址数组，保存数据到数据库
+        /// </summary>
+        /// <param name="filesArr"></param>
+        /// <returns></returns>
+        private List<Files> SaveFilesToDB(System.Array filesArr)
+        {
+            List<Files> filesList = new List<Files>();
+            FilesBiz fileBiz = new FilesBiz();
+            foreach (var item in filesArr)
+            {
+                Files file = CL.UI.Logic.UILogic.GetFileModelByFilePath(item.ToString());
+                file.IFId = fileBiz.GetMaxNext();
+                fileBiz.Add(file);
+                filesList.Add(file);
+            }
+            return filesList;
+        }
+        #endregion 私有方法
+
     }
 }

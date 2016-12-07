@@ -1191,13 +1191,24 @@ namespace CL.BLL
 
             string idField = fieldname;
             string tableName = tablename;
-            string sql = String.Format("select isnull(MAX({0}),0) as maxId from {1}", idField, tableName);
+            string sql = String.Format("select MAX({0}) as maxId from {1}", idField, tableName);
 
             using (var ctx = new DbContext(cfg))
             {
                 DataTable dt = ctx.DbHelper.ExecuteDataTable(sql);
-                return Convert.ToInt32(dt.Rows[0][0]);
+                return dt.Rows[0][0] == System.DBNull.Value ? 0 : Convert.ToInt32(dt.Rows[0][0]);
             }
+        }
+
+        /// <summary>
+        /// 获取最大值+1
+        /// </summary>
+        /// <param name="fieldname"></param>
+        /// <param name="tablename"></param>
+        /// <returns></returns>
+        protected int GetMaxNextId(string fieldname, string tablename)
+        {
+            return GetMaxId(fieldname, tablename) + 1;
         }
         #endregion
     }

@@ -40,9 +40,9 @@
             this.操作ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.文件检查ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.skinPnlBottom = new CCWin.SkinControl.SkinPanel();
+            this.lblMessage = new CCWin.SkinControl.SkinLabel();
             this.skinSplitContainerMain = new CCWin.SkinControl.SkinSplitContainer();
             this.controlCategory1 = new CL.FileManager.Win.Controls.ControlCategory();
-            this.lblMessage = new CCWin.SkinControl.SkinLabel();
             this.skinMenuStrip1.SuspendLayout();
             this.skinPnlBottom.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.skinSplitContainerMain)).BeginInit();
@@ -178,6 +178,18 @@
             this.skinPnlBottom.Size = new System.Drawing.Size(736, 30);
             this.skinPnlBottom.TabIndex = 2;
             // 
+            // lblMessage
+            // 
+            this.lblMessage.AutoSize = true;
+            this.lblMessage.BackColor = System.Drawing.Color.Transparent;
+            this.lblMessage.BorderColor = System.Drawing.Color.White;
+            this.lblMessage.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.lblMessage.ForeColor = System.Drawing.Color.Fuchsia;
+            this.lblMessage.Location = new System.Drawing.Point(3, 9);
+            this.lblMessage.Name = "lblMessage";
+            this.lblMessage.Size = new System.Drawing.Size(0, 17);
+            this.lblMessage.TabIndex = 0;
+            // 
             // skinSplitContainerMain
             // 
             this.skinSplitContainerMain.Cursor = System.Windows.Forms.Cursors.Default;
@@ -205,19 +217,7 @@
             this.controlCategory1.Size = new System.Drawing.Size(243, 367);
             this.controlCategory1.TabIndex = 0;
             this.controlCategory1.OnCategroyButtonClick += new System.EventHandler(this.controlCategory1_OnCategroyButtonClick);
-            this.controlCategory1.OnFileDragDrop += new System.EventHandler(this.controlCategory1_OnFileDragDrop);
-            // 
-            // lblMessage
-            // 
-            this.lblMessage.AutoSize = true;
-            this.lblMessage.BackColor = System.Drawing.Color.Transparent;
-            this.lblMessage.BorderColor = System.Drawing.Color.White;
-            this.lblMessage.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.lblMessage.ForeColor = System.Drawing.Color.Fuchsia;
-            this.lblMessage.Location = new System.Drawing.Point(3, 9);
-            this.lblMessage.Name = "lblMessage";
-            this.lblMessage.Size = new System.Drawing.Size(0, 17);
-            this.lblMessage.TabIndex = 0;
+            
             // 
             // FrmMain
             // 
@@ -231,6 +231,7 @@
             this.MainMenuStrip = this.skinMenuStrip1;
             this.Name = "FrmMain";
             this.Text = "文件管理";
+            this.DragDrop += new System.Windows.Forms.DragEventHandler(this.FrmMain_DragDrop);
             this.skinMenuStrip1.ResumeLayout(false);
             this.skinMenuStrip1.PerformLayout();
             this.skinPnlBottom.ResumeLayout(false);

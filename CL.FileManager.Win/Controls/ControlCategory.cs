@@ -18,20 +18,23 @@ namespace CL.FileManager.Win.Controls
         [Description("类型点击事件；参数 sender: Category")]
         public event System.EventHandler OnCategroyButtonClick;
 
-        /// <summary>
-        /// 文件拖放
-        /// </summary>
-        [Description("文件拖放到类型按钮事件")]
-        public event System.EventHandler OnFileDragDrop;
+        ///// <summary>
+        ///// 文件拖放
+        ///// </summary>
+        //[Description("文件拖放到类型按钮事件")]
+        //public event System.EventHandler OnFileDragDrop;
 
         BLL.CategoryBiz biz = new BLL.CategoryBiz();
 
         /// <summary>
         /// 加载类型
         /// </summary>
-        public void LoadCategory ()
+        public void LoadCategory (List<Category> categoryList)
         {
-            List<Category> categoryList = biz.GetAllTopCategory();
+            if(categoryList == null )
+            {
+                return;
+            }
 
             List<Color> colors = InitialColors();
 
@@ -43,41 +46,46 @@ namespace CL.FileManager.Win.Controls
                 btn.AllowDrop = true;
                 btn.Tag = category;
                 btn.Text = category.CCategoryName;
+                btn.BackColor = colors[rd.Next(colors.Count)];
+                //btn.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
                 btn.BaseColor = colors[rd.Next(colors.Count)];
                 btn.Width = (int)(category.CCategoryName.Length * btn.Font.Size * 2) + 8;
                 
                 //事件
                 btn.Click += Btn_Click;
-                btn.DragDrop += Btn_DragDrop;
+                //btn.DragDrop += Btn_DragDrop;
+                //btn.DragEnter += Btn_DragEnter;
 
                 this.Controls.Add(btn);
             }
             
         }
 
+
+
         /// <summary>
         /// 拖动文件到类型按钮上事件
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void Btn_DragDrop(object sender, System.Windows.Forms.DragEventArgs e)
-        {
+        //private void Btn_DragDrop(object sender, System.Windows.Forms.DragEventArgs e)
+        //{
 
-            Array arr = ((System.Array)e.Data.GetData(System.Windows.Forms.DataFormats.FileDrop));
+        //    Array arr = ((System.Array)e.Data.GetData(System.Windows.Forms.DataFormats.FileDrop));
 
-            Category c = ((SkinButton)sender).Tag as Category;
+        //    Category c = ((SkinButton)sender).Tag as Category;
 
-            FileDragDropArgs args = new FileDragDropArgs();
-            args.FileCategory = c;
-            args.FlileArray = arr;
+        //    FileDragDropArgs args = new FileDragDropArgs();
+        //    args.FileCategory = c;
+        //    args.FlileArray = arr;
 
-            //触发事件
-            if (OnFileDragDrop != null)
-            {
-                OnFileDragDrop(sender, args);
-            }
+        //    //触发事件
+        //    if (OnFileDragDrop != null)
+        //    {
+        //        OnFileDragDrop(sender, args);
+        //    }
 
-        }
+        //}
 
         /// <summary>
         /// 初始化颜色
@@ -109,8 +117,8 @@ namespace CL.FileManager.Win.Controls
             //触发事件
             if (OnCategroyButtonClick != null)
             {
-                Category c = ((SkinButton)sender).Tag as Category;
-                OnCategroyButtonClick(c, null);
+                //Category c = ((SkinButton)sender).Tag as Category;
+                OnCategroyButtonClick(sender, null);
             }
         }
 

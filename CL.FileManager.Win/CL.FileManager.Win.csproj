@@ -36,6 +36,9 @@
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="CL.FileManager.Win">
+      <HintPath>obj\Debug\CL.FileManager.Win.exe</HintPath>
+    </Reference>
     <Reference Include="CSkin">
       <HintPath>..\DLL\CSkin.dll</HintPath>
     </Reference>
@@ -73,11 +76,14 @@
     <Compile Include="Controls\ControlCategory.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="FrmAddFiles.cs">
+    <Compile Include="Controls\ControlFileList.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="FrmAddFilesCategory.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmAddFiles.Designer.cs">
-      <DependentUpon>FrmAddFiles.cs</DependentUpon>
+    <Compile Include="FrmAddFilesCategory.Designer.cs">
+      <DependentUpon>FrmAddFilesCategory.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmMain.cs">
       <SubType>Form</SubType>
@@ -87,8 +93,8 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="FrmAddFiles.resx">
-      <DependentUpon>FrmAddFiles.cs</DependentUpon>
+    <EmbeddedResource Include="FrmAddFilesCategory.resx">
+      <DependentUpon>FrmAddFilesCategory.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmMain.resx">
       <DependentUpon>FrmMain.cs</DependentUpon>
