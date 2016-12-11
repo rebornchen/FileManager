@@ -73,11 +73,20 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controls\ButtonWithDel.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Controls\ControlCategory.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Controls\ControlFileList.cs">
       <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="FormTest.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormTest.Designer.cs">
+      <DependentUpon>FormTest.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmAddFilesCategory.cs">
       <SubType>Form</SubType>
@@ -93,6 +102,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="FormTest.resx">
+      <DependentUpon>FormTest.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmAddFilesCategory.resx">
       <DependentUpon>FrmAddFilesCategory.cs</DependentUpon>
     </EmbeddedResource>
@@ -140,6 +152,12 @@
       <Project>{b21e026a-9a54-4113-8c0f-1fe9b00184ff}</Project>
       <Name>CL.UI.Logic</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Content Include="images\icon_del.png" />
+    <Content Include="Resources\icon_del.png" />
+    <None Include="Resources\icon_del1.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
