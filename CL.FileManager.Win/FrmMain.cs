@@ -1,4 +1,5 @@
 ﻿using CCWin;
+using CCWin.SkinControl;
 using CL.BLL;
 using CL.Model;
 using CL.UI.Logic;
@@ -57,9 +58,13 @@ namespace CL.FileManager.Win
         /// <param name="e"></param>
         private void controlCategory1_OnCategroyButtonClick(object sender, EventArgs e)
         {
-            Category c = (Category)sender;
+            SkinButton btn = (SkinButton)sender;
+            Category c = (Category)btn.Tag;
             lblMessage.Text = c.CCategoryName;
-            //处理
+
+            //处理,将选中的内容放置到右边的类型选择框中
+            skinPnlCategory.AddCategory(c);
+
         }
 
         #region 文件拖放处理

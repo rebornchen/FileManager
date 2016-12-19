@@ -24,41 +24,55 @@ namespace CL.FileManager.Win.Controls
         //[Description("文件拖放到类型按钮事件")]
         //public event System.EventHandler OnFileDragDrop;
 
-        BLL.CategoryBiz biz = new BLL.CategoryBiz();
+        protected BLL.CategoryBiz biz = new BLL.CategoryBiz();
+        protected List<Color> colors = InitialColors();
+        protected Random rd = new Random();
 
         /// <summary>
         /// 加载类型
         /// </summary>
-        public void LoadCategory (List<Category> categoryList)
+        public virtual void LoadCategory (List<Category> categoryList)
         {
             if(categoryList == null )
             {
                 return;
             }
 
-            List<Color> colors = InitialColors();
-
-            Random rd = new Random();
-
             foreach (Category category in categoryList)
             {
-                SkinButton btn = new SkinButton();
-                btn.AllowDrop = true;
-                btn.Tag = category;
-                btn.Text = category.CCategoryName;
-                btn.BackColor = colors[rd.Next(colors.Count)];
-                //btn.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-                btn.BaseColor = colors[rd.Next(colors.Count)];
-                btn.Width = (int)(category.CCategoryName.Length * btn.Font.Size * 2) + 8;
-                
-                //事件
-                btn.Click += Btn_Click;
-                //btn.DragDrop += Btn_DragDrop;
-                //btn.DragEnter += Btn_DragEnter;
-
-                this.Controls.Add(btn);
+                AddCategory(category);
             }
             
+        }
+
+        /// <summary>
+        /// 添加单个类型
+        /// </summary>
+        /// <param name="category"></param>
+        public virtual void AddCategory(Category category)
+        {
+            if (category == null)
+            {
+                return;
+            }
+            
+            SkinButton btn = new SkinButton();
+            btn.AllowDrop = true;
+            btn.Tag = category;
+            btn.Text = category.CCategoryName;
+            btn.BackColor = colors[rd.Next(colors.Count)];
+            //btn.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            btn.BaseColor = colors[rd.Next(colors.Count)];
+            //btn.Width = (int)(category.CCategoryName.Length * btn.Font.Size * 2) + 8;
+            btn.Width = (int)Commons.UICommon.GetControlWidth(btn.Text, btn.Font, this) + 10;
+
+            //事件
+            btn.Click += Btn_Click;
+            //btn.DragDrop += Btn_DragDrop;
+            //btn.DragEnter += Btn_DragEnter;
+
+            this.Controls.Add(btn);
+
         }
 
 
@@ -91,7 +105,7 @@ namespace CL.FileManager.Win.Controls
         /// 初始化颜色
         /// </summary>
         /// <returns></returns>
-        private static List<Color> InitialColors()
+        protected static List<Color> InitialColors()
         {
             List<Color> colors = new List<Color>();
             colors.Add(Color.AliceBlue);
@@ -112,7 +126,7 @@ namespace CL.FileManager.Win.Controls
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void Btn_Click(object sender, EventArgs e)
+        protected void Btn_Click(object sender, EventArgs e)
         {
             //触发事件
             if (OnCategroyButtonClick != null)
@@ -123,14 +137,14 @@ namespace CL.FileManager.Win.Controls
         }
 
 
-        /// <summary>
-        /// 事件参数
-        /// </summary>
-        public class FileDragDropArgs : System.EventArgs
-        {
-            public Category FileCategory { get; set; }
-            public System.Array FlileArray { get; set; }
-        }
+        ///// <summary>
+        ///// 事件参数
+        ///// </summary>
+        //public class FileDragDropArgs : System.EventArgs
+        //{
+        //    public Category FileCategory { get; set; }
+        //    public System.Array FlileArray { get; set; }
+        //}
         
     }
 }

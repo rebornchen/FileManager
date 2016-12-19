@@ -8,7 +8,7 @@ namespace CL.FileManager.Win.Controls
 {
 
 
-    public class ButtonWithDel : SkinPanel
+    public class ButtonWithDel : SkinFlowLayoutPanel
     {
 
         private SkinButton btn = new SkinButton();
@@ -77,22 +77,21 @@ namespace CL.FileManager.Win.Controls
         /// </summary>
         private void ChangePanelWidth()
         {
-            int width = (int)(Text.Length * btn.Font.Size * 2) + 8;
-            width = (ShowDelete ? width + btnDel.Width : width) + 2;
+            
+            btn.Width = (int)Commons.UICommon.GetControlWidth(Text, btn.Font, this) + 10;
+                        
+            int width = (ShowDelete ? btn.Width + btnDel.Width + 4: btn.Width + 4) ;
             this.Width = width;
         }
 
-
         
-
-
-
 
         /// <summary>
         /// 构造方法
         /// </summary>
         public ButtonWithDel()
         {
+            InitialControls();
             //设置border 为none
             this.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.Height = 23;
@@ -101,7 +100,7 @@ namespace CL.FileManager.Win.Controls
             Text = "Test";
             Tag = null;
 
-            InitialControls();
+            //InitialControls();
         }
 
         /// <summary>
@@ -109,33 +108,44 @@ namespace CL.FileManager.Win.Controls
         /// </summary>
         public void InitialControls()
         {
-            btn.Click += Btn_Click;
-
-            btnDel.Click += BtnDel_Click;
-
-            btnDel.Text = String.Empty;
-            btnDel.Image = global::CL.FileManager.Win.Properties.Resources.icon_del1;
-            btnDel.BaseColor = System.Drawing.Color.Transparent;
-            btnDel.IsDrawBorder = false;
-            btnDel.Width = 23;
-            btnDel.Height = 23;
-        
+            //btn 处理
             btn.IsDrawBorder = false;
             btn.BaseColor = System.Drawing.Color.Transparent;
             btn.Height = 23;
+            btn.Margin = System.Windows.Forms.Padding.Empty;
+            btn.Click += Btn_Click;
 
+            //btnDel 处理
+            btnDel.BackColor = System.Drawing.Color.Transparent;
+            btnDel.BackgroundImage = global::CL.FileManager.Win.Properties.Resources.icon_del1;
+            btnDel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            btnDel.BaseColor = System.Drawing.Color.Transparent;
+            btnDel.ControlState = CCWin.SkinClass.ControlState.Normal;
+            btnDel.DownBack = null;
+            btnDel.Location = new System.Drawing.Point(287, 186);
+            btnDel.MouseBack = null;
+            btnDel.NormlBack = null;
+            btnDel.Size = new System.Drawing.Size(20, 20);
+            btnDel.IsDrawBorder = false;
+            btnDel.Text = String.Empty;
+            btnDel.UseVisualStyleBackColor = false;
+            btnDel.DrawType = DrawStyle.Img;
+            btnDel.Margin = System.Windows.Forms.Padding.Empty;
+            btnDel.Click += BtnDel_Click;
+
+            //添加子控件
             this.Controls.Add(btn);
-            //this.Controls.Add(btnDel);
+            this.Controls.Add(btnDel);
         }
 
         private void BtnDel_Click(object sender, EventArgs e)
         {
-            OnDelClick?.Invoke(sender, e);
+            OnDelClick?.Invoke(this, e);
         }
 
         private void Btn_Click(object sender, EventArgs e)
         {
-            OnButtonClick?.Invoke(sender, e);
+            OnButtonClick?.Invoke(this, e);
         }
     }
 }

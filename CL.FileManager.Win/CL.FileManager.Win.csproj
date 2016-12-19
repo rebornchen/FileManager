@@ -73,10 +73,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Commons\UICommon.cs" />
     <Compile Include="Controls\ButtonWithDel.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Controls\ControlCategory.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\ControlCategoryWithDel.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Controls\ControlFileList.cs">

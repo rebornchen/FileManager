@@ -40,9 +40,12 @@
             this.操作ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.文件检查ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.skinPnlBottom = new CCWin.SkinControl.SkinPanel();
+            this.skinPnlCategory = new Win.Controls.ControlCategoryWithDel();
+            this.skinPnlContent = new CCWin.SkinControl.SkinPanel();
             this.lblMessage = new CCWin.SkinControl.SkinLabel();
             this.skinSplitContainerMain = new CCWin.SkinControl.SkinSplitContainer();
             this.controlCategory1 = new CL.FileManager.Win.Controls.ControlCategory();
+            
             this.skinMenuStrip1.SuspendLayout();
             this.skinPnlBottom.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.skinSplitContainerMain)).BeginInit();
@@ -178,6 +181,30 @@
             this.skinPnlBottom.Size = new System.Drawing.Size(736, 30);
             this.skinPnlBottom.TabIndex = 2;
             // 
+            // skinPnlCategory
+            // 
+            //this.skinPnlCategory.BackColor = System.Drawing.Color.Transparent;
+            this.skinPnlCategory.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.skinPnlCategory.ControlState = CCWin.SkinClass.ControlState.Normal;
+            this.skinPnlCategory.Dock = System.Windows.Forms.DockStyle.Top;
+            this.skinPnlCategory.DownBack = null;
+            //this.skinPnlCategory.Location = new System.Drawing.Point(4, 420);
+            this.skinPnlCategory.MouseBack = null;
+            this.skinPnlCategory.Name = "skinPnlCategory";
+            this.skinPnlCategory.NormlBack = null;
+            //this.skinPnlCategory.TabIndex = 2;
+            // 
+            // skinPnlContent
+            // 
+            //this.skinPnlContent.BackColor = System.Drawing.Color.Transparent;
+            this.skinPnlContent.BackColor = System.Drawing.Color.BlanchedAlmond;
+            this.skinPnlContent.ControlState = CCWin.SkinClass.ControlState.Normal;
+            this.skinPnlContent.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.skinPnlContent.DownBack = null;
+            this.skinPnlContent.MouseBack = null;
+            this.skinPnlContent.Name = "skinPnlContent";
+            this.skinPnlContent.NormlBack = null;
+            // 
             // lblMessage
             // 
             this.lblMessage.AutoSize = true;
@@ -203,6 +230,12 @@
             this.skinSplitContainerMain.Size = new System.Drawing.Size(736, 367);
             this.skinSplitContainerMain.SplitterDistance = 243;
             this.skinSplitContainerMain.TabIndex = 3;
+            // 
+            // skinSplitContainerMain.Panel2
+            // 
+            this.skinSplitContainerMain.Panel2.Controls.Add(this.skinPnlCategory);
+            this.skinSplitContainerMain.Panel2.Controls.Add(this.skinPnlContent);
+            this.skinSplitContainerMain.TabIndex = 4;
             // 
             // controlCategory1
             // 
@@ -260,6 +293,8 @@
         private System.Windows.Forms.ToolStripMenuItem 操作ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 文件检查ToolStripMenuItem;
         private CCWin.SkinControl.SkinLabel lblMessage;
+        private Controls.ControlCategoryWithDel skinPnlCategory;
+        private CCWin.SkinControl.SkinPanel skinPnlContent;
     }
 }
 

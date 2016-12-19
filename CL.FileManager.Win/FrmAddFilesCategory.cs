@@ -13,7 +13,7 @@ using System.Windows.Forms;
 
 namespace CL.FileManager.Win
 {
-    public partial class FrmAddFilesCategory : CCSkinMain
+    public partial class FrmAddFilesCategory : CCWin.CCSkinMain
     {
 
         private List<Files> files = null;
@@ -22,6 +22,12 @@ namespace CL.FileManager.Win
         {
             InitializeComponent();
         }
+
+        //public FrmAddFilesCategory(CCSkinMain main) : base(main)
+        //{
+        //    InitializeComponent();
+        //    //base.sh
+        //}
 
         /// <summary>
         /// 设置文件
