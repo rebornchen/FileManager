@@ -88,7 +88,7 @@ namespace CL.FileManager.Win.Controls
         public override void AddCategory(Category category)
         {
             if (category == null
-                || this.Categories.FindIndex(c => c.ICId == category.ICId) > -1)
+                || this.Categories.Find(c => c.ICId == category.ICId) != null)
             {
                 return;
             }
@@ -107,6 +107,9 @@ namespace CL.FileManager.Win.Controls
             btn.OnDelClick += Btn_OnDelClick;
 
             this.Controls.Add(btn);
+
+            //触发事件
+            OnCategoryChanged?.Invoke(this, null);
 
         }
         #endregion

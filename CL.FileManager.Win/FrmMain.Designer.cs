@@ -45,7 +45,9 @@
             this.lblMessage = new CCWin.SkinControl.SkinLabel();
             this.skinSplitContainerMain = new CCWin.SkinControl.SkinSplitContainer();
             this.controlCategory1 = new CL.FileManager.Win.Controls.ControlCategory();
-            
+            this.ucFileListView = new Win.Controls.UCFileListView();
+
+
             this.skinMenuStrip1.SuspendLayout();
             this.skinPnlBottom.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.skinSplitContainerMain)).BeginInit();
@@ -181,6 +183,10 @@
             this.skinPnlBottom.Size = new System.Drawing.Size(736, 30);
             this.skinPnlBottom.TabIndex = 2;
             // 
+            // ucFileListView
+            // 
+            this.ucFileListView.Dock = System.Windows.Forms.DockStyle.Fill;
+            // 
             // skinPnlCategory
             // 
             //this.skinPnlCategory.BackColor = System.Drawing.Color.Transparent;
@@ -204,6 +210,7 @@
             this.skinPnlContent.MouseBack = null;
             this.skinPnlContent.Name = "skinPnlContent";
             this.skinPnlContent.NormlBack = null;
+            this.skinPnlContent.Controls.Add(this.ucFileListView);
             // 
             // lblMessage
             // 
@@ -216,6 +223,7 @@
             this.lblMessage.Name = "lblMessage";
             this.lblMessage.Size = new System.Drawing.Size(0, 17);
             this.lblMessage.TabIndex = 0;
+
             // 
             // skinSplitContainerMain
             // 
@@ -295,6 +303,7 @@
         private CCWin.SkinControl.SkinLabel lblMessage;
         private Controls.ControlCategoryWithDel skinPnlCategory;
         private CCWin.SkinControl.SkinPanel skinPnlContent;
+        private Controls.UCFileListView ucFileListView;
     }
 }
 

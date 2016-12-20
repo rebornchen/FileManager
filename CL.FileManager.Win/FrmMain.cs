@@ -22,6 +22,8 @@ namespace CL.FileManager.Win
         public FrmMain()
         {
             InitializeComponent();
+            skinPnlCategory.OnCategoryChanged += SkinPnlCategory_OnCategoryChanged;
+
         }
 
         #region 菜单事件
@@ -64,12 +66,16 @@ namespace CL.FileManager.Win
 
             //处理,将选中的内容放置到右边的类型选择框中
             skinPnlCategory.AddCategory(c);
+        }
 
+        private void SkinPnlCategory_OnCategoryChanged(object sender, EventArgs e)
+        {
+            ucFileListView.SelectedCategoris = skinPnlCategory.Categories;
         }
 
         #region 文件拖放处理
 
-        
+
 
         private void FrmMain_DragDrop(object sender, DragEventArgs e)
         {
