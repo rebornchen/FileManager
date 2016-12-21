@@ -61,7 +61,8 @@
             this.skinMenuStrip1.Back = System.Drawing.Color.White;
             this.skinMenuStrip1.BackRadius = 4;
             this.skinMenuStrip1.BackRectangle = new System.Drawing.Rectangle(10, 10, 10, 10);
-            this.skinMenuStrip1.Base = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(200)))), ((int)(((byte)(254)))));
+            //this.skinMenuStrip1.Base = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(200)))), ((int)(((byte)(254)))));
+            this.skinMenuStrip1.Base = System.Drawing.Color.Transparent;
             this.skinMenuStrip1.BaseFore = System.Drawing.Color.Black;
             this.skinMenuStrip1.BaseForeAnamorphosis = false;
             this.skinMenuStrip1.BaseForeAnamorphosisBorder = 4;
@@ -233,6 +234,7 @@
             this.skinSplitContainerMain.Dock = System.Windows.Forms.DockStyle.Fill;
             this.skinSplitContainerMain.Location = new System.Drawing.Point(4, 53);
             this.skinSplitContainerMain.Name = "skinSplitContainerMain";
+            this.skinSplitContainerMain.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             // 
             // skinSplitContainerMain.Panel1
             // 

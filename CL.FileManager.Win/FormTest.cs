@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace CL.FileManager.Win
 {
-    public partial class FormTest : CCSkinMain
+    public partial class FormTest : BaseForm
     {
         public FormTest()
         {

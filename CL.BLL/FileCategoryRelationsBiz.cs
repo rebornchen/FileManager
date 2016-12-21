@@ -25,37 +25,58 @@ namespace CL.BLL
         /// </summary>
         /// <param name="categoryIds"></param>
         /// <returns></returns>
-        public List<FileCategoryRelations> GetFileCategoryRelations(List<int> categoryIds)
+        public List<int> GetFileIds(List<int> categoryIds)
         {
             /***
              * 待修改
              * 
              * ************/
-            List<FileCategoryRelations> result = new List<FileCategoryRelations>();
+            List<int> result = new List<int>();
             if (categoryIds == null || categoryIds.Count == 0)
             {
                 return result;
             }
             using (DbContext ctx = new DbContext(cfg))
             {
-
-
-                string sql = "select * from FileCategoryRelations ";
-
-
-
-                int i = 1;
-                foreach (int categoryid in categoryIds)
+                string innerjoinSql = String.Empty;
+                string whereSql = String.Format(" where t0.ICId={0} ", categoryIds[0]);
+                //生成sql
+                //1.生成 select 
+                string selectSql = "select t0.IFId ";
+                //2.生成 from
+                string fromSql = " FROM [T_FileCategoryRelations] t0 ";
+                //3.生成联表
+                //4.生成where
+                for (int i = 1; i < categoryIds.Count; i++)
                 {
-                    string temp = String.Format("({0} where ICId = {1} ) t{2} on t1.IFId=t{2}.IFId ", sql, categoryid, i);
-                    i++;
+                    innerjoinSql += String.Format(" inner join [T_FileCategoryRelations] t{0} on t0.IFId=t{0}.IFId ", i);
+                    whereSql += String.Format(" and t{0}.ICId={1} ", i, categoryIds[i]);
+                }
+
+                //5.形成完整的sql
+                string sql = selectSql + fromSql + innerjoinSql + whereSql;
+
+                //查询数据，并将数据转换成列表
+                System.Data.DataTable dt = ctx.DbHelper.ExecuteDataTable(sql);
+                foreach (System.Data.DataRow row in dt.Rows)
+                {
+                    result.Add(Convert.ToInt32(row[0]));
                 }
             }
-            return null;
+            return result;
         }
     }
 }
 
 //select * from FileCategoryRelations inner join ({0} where ICId = {1} ) t{2} on t1.Ifid=t{2}.ifid 
+/*
+ SELECT t1.IFId, t1.*,t2.*, t3.*
+  FROM [T_FileCategoryRelations] t1 
+  inner join [T_FileCategoryRelations] t2 on t1.IFId=t2.IFId
+  inner join [T_FileCategoryRelations] t3 on t1.IFId=t3.IFId
+  where t1.ICId=1 and t2.ICId=2 and t3.ICId=1
+  ;
+
+ * */
 
 

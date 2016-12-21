@@ -13,7 +13,7 @@ using System.Windows.Forms;
 
 namespace CL.FileManager.Win
 {
-    public partial class FrmAddFilesCategory : CCWin.CCSkinMain
+    public partial class FrmAddFilesCategory : BaseForm
     {
 
         private List<Files> files = null;

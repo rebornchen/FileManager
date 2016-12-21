@@ -70,8 +70,7 @@ namespace CL.FileManager.Win.Controls
 
             //根据类型列表获取所有的文件、类型
             var temp = selectedCategoris.Select(sc => sc.ICId);
-            List<FileCategoryRelations> fcrListOnlySeletedCategory = fileCategoryRelationsBiz.GetFileCategoryRelations(temp.ToList());
-            var tempFileIds = fcrListOnlySeletedCategory.Select(fosc => fosc.IFId);
+            var tempFileIds = fileCategoryRelationsBiz.GetFileIds(temp.ToList());
             List<FileCategoryRelations> fcrList = fileCategoryRelationsBiz.GetList(fcr => tempFileIds.Contains(fcr.IFId));
 
             //根据文件 id 获取所有 Relations

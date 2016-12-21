@@ -15,7 +15,7 @@ using System.Windows.Forms;
 
 namespace CL.FileManager.Win
 {
-    public partial class FrmMain : CCSkinMain
+    public partial class FrmMain : BaseForm
     {
         private CategoryBiz categoryBiz = new CategoryBiz();
 
