@@ -74,32 +74,19 @@ namespace CL.FileManager.Win.Controls
             this.Controls.Add(btn);
 
         }
-
-
-
+        
         /// <summary>
-        /// 拖动文件到类型按钮上事件
+        /// 移除指定按钮
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        //private void Btn_DragDrop(object sender, System.Windows.Forms.DragEventArgs e)
-        //{
+        /// <param name="btn"></param>
+        public void Remove(SkinButton btn)
+        {
+            if(this.Controls.Contains(btn))
+            {
+                this.Controls.Remove(btn);
+            }
+        }
 
-        //    Array arr = ((System.Array)e.Data.GetData(System.Windows.Forms.DataFormats.FileDrop));
-
-        //    Category c = ((SkinButton)sender).Tag as Category;
-
-        //    FileDragDropArgs args = new FileDragDropArgs();
-        //    args.FileCategory = c;
-        //    args.FlileArray = arr;
-
-        //    //触发事件
-        //    if (OnFileDragDrop != null)
-        //    {
-        //        OnFileDragDrop(sender, args);
-        //    }
-
-        //}
 
         /// <summary>
         /// 初始化颜色

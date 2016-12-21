@@ -36,6 +36,7 @@
             this.skinLV.Dock = System.Windows.Forms.DockStyle.Fill;
             this.skinLV.Location = new System.Drawing.Point(0, 0);
             this.skinLV.Name = "skinLV";
+            this.skinLV.View = System.Windows.Forms.View.Tile;
             this.skinLV.OwnerDraw = true;
             this.skinLV.Size = new System.Drawing.Size(400, 300);
             this.skinLV.TabIndex = 0;

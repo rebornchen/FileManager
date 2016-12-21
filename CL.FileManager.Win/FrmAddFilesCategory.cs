@@ -71,9 +71,35 @@ namespace CL.FileManager.Win
                 relationsbiz.Add(r);
             }
 
-            btn.Visible = false;
+            controlCategory1.Remove(btn);
+            controlCategoryWithDel.AddCategory(c);
+            //btn.Visible = false;
 
             //controlCategory1.Controls.Remove(btn);
+        }
+
+        /// <summary>
+        /// 当类型发生变化时触发
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void ControlCategoryWithDel_OnCategoryChanged(object sender, Controls.ControlCategoryWithDel.OnCategoryChangedEventArgs e)
+        {
+            if(!e.IsDel)
+            {
+                return;
+            }
+            if (files == null || files.Count == 0)
+            {
+                return;
+            }
+            Category c = e.ChangedCategory;
+            FileCategoryRelationsBiz relationsbiz = new FileCategoryRelationsBiz();
+            foreach (Files f in files)
+            {
+                relationsbiz.Delete(f.IFId, c.ICId);
+            }
+
         }
     }
 }

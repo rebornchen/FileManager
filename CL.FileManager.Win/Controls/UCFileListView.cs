@@ -43,6 +43,21 @@ namespace CL.FileManager.Win.Controls
                 LoadData();
             }
         }
+
+        /// <summary>
+        ///  当前文件展示的视图方式
+        /// </summary>
+        public System.Windows.Forms.View View
+        {
+            set
+            {
+                skinLV.View = value;
+            }
+            get
+            {
+                return skinLV.View;
+            }
+        }
         #endregion 公共属性
 
         #region 加载数据
@@ -54,7 +69,13 @@ namespace CL.FileManager.Win.Controls
             skinLV.Items.Clear();
 
             //根据类型列表获取所有的文件、类型
-            List<FileCategoryRelations> fcrList = fileCategoryRelationsBiz.GetList(fcr => selectedCategoris.FindIndex(sc => sc.ICId == fcr.ICId) > -1);
+            var temp = selectedCategoris.Select(sc => sc.ICId);
+            List<FileCategoryRelations> fcrListOnlySeletedCategory = fileCategoryRelationsBiz.GetFileCategoryRelations(temp.ToList());
+            var tempFileIds = fcrListOnlySeletedCategory.Select(fosc => fosc.IFId);
+            List<FileCategoryRelations> fcrList = fileCategoryRelationsBiz.GetList(fcr => tempFileIds.Contains(fcr.IFId));
+
+            //根据文件 id 获取所有 Relations
+
 
             //
             // 处理类型列表

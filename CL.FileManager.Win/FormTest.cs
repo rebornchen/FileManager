@@ -20,54 +20,53 @@ namespace CL.FileManager.Win
 
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.Windows.Forms.ListViewGroup listViewGroup1 = new System.Windows.Forms.ListViewGroup("ListViewGroup", System.Windows.Forms.HorizontalAlignment.Left);
-            System.Windows.Forms.ListViewGroup listViewGroup2 = new System.Windows.Forms.ListViewGroup("ListViewGroup2", System.Windows.Forms.HorizontalAlignment.Left);
-            System.Windows.Forms.ListViewItem listViewItem1 = new System.Windows.Forms.ListViewItem("ttttt");
-            System.Windows.Forms.ListViewItem listViewItem2 = new System.Windows.Forms.ListViewItem("eee");
-            System.Windows.Forms.ListViewItem listViewItem3 = new System.Windows.Forms.ListViewItem("ddd");
-            System.Windows.Forms.ListViewItem listViewItem4 = new System.Windows.Forms.ListViewItem("ADSas");
-            System.Windows.Forms.ListViewItem listViewItem5 = new System.Windows.Forms.ListViewItem("fffff");
-            System.Windows.Forms.ListViewItem listViewItem6 = new System.Windows.Forms.ListViewItem("zxcv");
-            System.Windows.Forms.ListViewItem listViewItem7 = new System.Windows.Forms.ListViewItem("sdfs");
-            System.Windows.Forms.ListViewItem listViewItem8 = new System.Windows.Forms.ListViewItem("dd");
-            System.Windows.Forms.ListViewItem listViewItem9 = new System.Windows.Forms.ListViewItem("sadf");
+            System.Windows.Forms.ListViewItem listViewItem1 = new System.Windows.Forms.ListViewItem(new string[] {
+            "asdfsd",
+            "SSSSS",
+            "QQQQQ"}, -1);
+            System.Windows.Forms.ListViewItem listViewItem2 = new System.Windows.Forms.ListViewItem("ssss");
+            System.Windows.Forms.ListViewItem listViewItem3 = new System.Windows.Forms.ListViewItem("sssssASD");
+            System.Windows.Forms.ListViewItem listViewItem4 = new System.Windows.Forms.ListViewItem("DDDDDDDDDD");
+            System.Windows.Forms.ListViewItem listViewItem5 = new System.Windows.Forms.ListViewItem("CCCCCCCCC");
+            System.Windows.Forms.ListViewItem listViewItem6 = new System.Windows.Forms.ListViewItem("QQQQQQQQQQQQQ");
             this.skinListView1 = new CCWin.SkinControl.SkinListView();
+            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.SuspendLayout();
             // 
             // skinListView1
             // 
             listViewGroup1.Header = "ListViewGroup";
             listViewGroup1.Name = "listViewGroup1";
-            listViewGroup2.Header = "ListViewGroup2";
-            listViewGroup2.Name = "listViewGroup2";
             this.skinListView1.Groups.AddRange(new System.Windows.Forms.ListViewGroup[] {
-            listViewGroup1,
-            listViewGroup2});
+            listViewGroup1});
             listViewItem1.Group = listViewGroup1;
             listViewItem2.Group = listViewGroup1;
             listViewItem3.Group = listViewGroup1;
             listViewItem4.Group = listViewGroup1;
             listViewItem5.Group = listViewGroup1;
-            listViewItem6.Group = listViewGroup2;
-            listViewItem7.Group = listViewGroup2;
-            listViewItem8.Group = listViewGroup2;
-            listViewItem9.Group = listViewGroup2;
+            listViewItem6.Group = listViewGroup1;
             this.skinListView1.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
             listViewItem1,
             listViewItem2,
             listViewItem3,
             listViewItem4,
             listViewItem5,
-            listViewItem6,
-            listViewItem7,
-            listViewItem8,
-            listViewItem9});
-            this.skinListView1.Location = new System.Drawing.Point(48, 93);
+            listViewItem6});
+            this.skinListView1.Location = new System.Drawing.Point(88, 55);
             this.skinListView1.Name = "skinListView1";
             this.skinListView1.OwnerDraw = true;
-            this.skinListView1.Size = new System.Drawing.Size(442, 175);
+            this.skinListView1.Size = new System.Drawing.Size(346, 210);
             this.skinListView1.TabIndex = 0;
             this.skinListView1.UseCompatibleStateImageBehavior = false;
+            this.skinListView1.View = System.Windows.Forms.View.Tile;
+            // 
+            // imageList1
+            // 
+            this.imageList1.ColorDepth = System.Windows.Forms.ColorDepth.Depth32Bit;
+            this.imageList1.ImageSize = new System.Drawing.Size(16, 16);
+            this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
             // 
             // FormTest
             // 

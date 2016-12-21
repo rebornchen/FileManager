@@ -186,6 +186,8 @@
             // ucFileListView
             // 
             this.ucFileListView.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ucFileListView.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            
             // 
             // skinPnlCategory
             // 
@@ -241,8 +243,8 @@
             // 
             // skinSplitContainerMain.Panel2
             // 
-            this.skinSplitContainerMain.Panel2.Controls.Add(this.skinPnlCategory);
             this.skinSplitContainerMain.Panel2.Controls.Add(this.skinPnlContent);
+            this.skinSplitContainerMain.Panel2.Controls.Add(this.skinPnlCategory);
             this.skinSplitContainerMain.TabIndex = 4;
             // 
             // controlCategory1

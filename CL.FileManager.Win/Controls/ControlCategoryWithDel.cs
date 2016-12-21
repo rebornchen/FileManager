@@ -12,9 +12,15 @@ namespace CL.FileManager.Win.Controls
 
         #region 事件
         /// <summary>
+        /// 定义 OnCategoryChanged 事件的代理
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        public delegate void OnCategoryChangedEventHandler(object sender, OnCategoryChangedEventArgs e);
+        /// <summary>
         /// 当控件中的类型发生改变事件
         /// </summary>
-        public event System.EventHandler OnCategoryChanged;
+        public event OnCategoryChangedEventHandler OnCategoryChanged;
         #endregion
 
         #region 构造方法
@@ -49,7 +55,7 @@ namespace CL.FileManager.Win.Controls
             RemoveButton(btn);
 
             //触发事件
-            OnCategoryChanged?.Invoke(this, null);
+            OnCategoryChanged?.Invoke(this, new OnCategoryChangedEventArgs((Category)btn.Tag, true));
         }
 
         /// <summary>
@@ -109,10 +115,25 @@ namespace CL.FileManager.Win.Controls
             this.Controls.Add(btn);
 
             //触发事件
-            OnCategoryChanged?.Invoke(this, null);
+            OnCategoryChanged?.Invoke(this, new OnCategoryChangedEventArgs(category, false));
 
         }
         #endregion
+
+        /// <summary>
+        /// OnCategoryChanged 事件参数
+        /// </summary>
+        public class OnCategoryChangedEventArgs : System.EventArgs
+        {
+            public Category ChangedCategory { get; set; }
+            public bool IsDel { get; set; }
+
+            public OnCategoryChangedEventArgs(Category c, bool isDel)
+            {
+                ChangedCategory = c;
+                IsDel = isDel;
+            }
+        }
 
     }
     
