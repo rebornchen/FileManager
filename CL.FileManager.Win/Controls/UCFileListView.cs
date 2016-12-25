@@ -26,6 +26,8 @@ namespace CL.FileManager.Win.Controls
         public UCFileListView()
         {
             InitializeComponent();
+            //增加右键菜单
+            this.ContextMenuStrip = skinContextMenuStrip1;
         }
         #endregion
 
@@ -148,7 +150,8 @@ namespace CL.FileManager.Win.Controls
                 System.Windows.Forms.ListViewItem listItem = new System.Windows.Forms.ListViewItem(group);
                 listItem.Text = item.CFileName;
                 listItem.ToolTipText = item.CFullName;
-
+                listItem.Tag = item;
+                
                 skinLV.Items.Add(listItem);
             }
         }
@@ -182,6 +185,47 @@ namespace CL.FileManager.Win.Controls
         {
             List<Files> fileList = fileBiz.GetList(f => fileIdList.Contains(f.IFId));
             return fileList;
+        }
+
+        /// <summary>
+        /// 打开文件夹的菜单
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void openToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if(skinLV.SelectedItems.Count == 0)
+            {
+                return;
+            }
+            string path = ((Files)skinLV.SelectedItems[0].Tag).CFullName;
+            CL.Common.Winform.WindowsFunctions.OpenFolderAndSelectFile(path);
+        }
+
+        /// <summary>
+        /// 编辑文件类型按钮
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void editCategoryToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (skinLV.SelectedItems.Count == 0)
+            {
+                return;
+            }
+            Files file = (Files)skinLV.SelectedItems[0].Tag;
+            List<Files> filelist = new List<Files>();
+            filelist.Add(file);
+            FrmAddFilesCategory frmAddFilesCategory = new FrmAddFilesCategory();
+            frmAddFilesCategory.SetFiles(filelist);
+
+
+            List<Category> categories = categoryBiz.GetAllTopCategory();
+            frmAddFilesCategory.SetCategory(categories);
+
+            frmAddFilesCategory.LoadFileCategory();
+
+            frmAddFilesCategory.ShowDialog();
         }
         #endregion
 

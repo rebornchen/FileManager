@@ -17,6 +17,8 @@ namespace CL.FileManager.Win
     {
 
         private List<Files> files = null;
+        private FileCategoryRelationsBiz relationsbiz = new FileCategoryRelationsBiz();
+        private CategoryBiz categoryBiz = new CategoryBiz();
 
         public FrmAddFilesCategory()
         {
@@ -49,6 +51,21 @@ namespace CL.FileManager.Win
         }
 
         /// <summary>
+        /// 加载已有的文件类型
+        /// </summary>
+        public void LoadFileCategory()
+        {
+            if(files.Count == 1)
+            {
+                List<Category> categories = categoryBiz.GetCategories(files[0]);
+                foreach(Category c in categories)
+                {
+                    controlCategoryWithDel.AddCategory(c);
+                }
+            }
+        }
+
+        /// <summary>
         /// 点击类型按钮
         /// </summary>
         /// <param name="sender"></param>
@@ -62,7 +79,7 @@ namespace CL.FileManager.Win
             SkinButton btn = (SkinButton)sender;
             Category c = (Category)btn.Tag;
 
-            FileCategoryRelationsBiz relationsbiz = new FileCategoryRelationsBiz();
+            
             foreach (Files f in files)
             {
                 FileCategoryRelations r = new FileCategoryRelations();
@@ -94,7 +111,7 @@ namespace CL.FileManager.Win
                 return;
             }
             Category c = e.ChangedCategory;
-            FileCategoryRelationsBiz relationsbiz = new FileCategoryRelationsBiz();
+            //FileCategoryRelationsBiz relationsbiz = new FileCategoryRelationsBiz();
             foreach (Files f in files)
             {
                 relationsbiz.Delete(f.IFId, c.ICId);

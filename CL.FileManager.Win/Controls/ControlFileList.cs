@@ -22,5 +22,16 @@ namespace CL.FileManager.Win.Controls
                 this.Items.Add(item);
             }
         }
+
+        /// <summary>
+        /// 添加单个文件到列表中
+        /// </summary>
+        /// <param name="file"></param>
+        public void AddFile(Files file)
+        {
+            SkinListBoxItem item = new SkinListBoxItem(file.CFullName);
+            item.Tag = file;
+            this.Items.Add(item);
+        }
     }
 }

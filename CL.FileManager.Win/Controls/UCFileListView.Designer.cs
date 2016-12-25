@@ -29,6 +29,11 @@
         private void InitializeComponent()
         {
             this.skinLV = new CCWin.SkinControl.SkinListView();
+            this.skinContextMenuStrip1 = new CCWin.SkinControl.SkinContextMenuStrip();
+            this.openToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.editToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.editCategoryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.skinContextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // skinLV
@@ -43,6 +48,57 @@
             this.skinLV.UseCompatibleStateImageBehavior = false;
             this.skinLV.View = System.Windows.Forms.View.Tile;
             // 
+            // skinContextMenuStrip1
+            // 
+            this.skinContextMenuStrip1.Arrow = System.Drawing.Color.Black;
+            this.skinContextMenuStrip1.Back = System.Drawing.Color.White;
+            this.skinContextMenuStrip1.BackRadius = 4;
+            this.skinContextMenuStrip1.Base = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(200)))), ((int)(((byte)(254)))));
+            this.skinContextMenuStrip1.DropDownImageSeparator = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
+            this.skinContextMenuStrip1.Fore = System.Drawing.Color.Black;
+            this.skinContextMenuStrip1.HoverFore = System.Drawing.Color.White;
+            this.skinContextMenuStrip1.ItemAnamorphosis = true;
+            this.skinContextMenuStrip1.ItemBorder = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(148)))), ((int)(((byte)(212)))));
+            this.skinContextMenuStrip1.ItemBorderShow = true;
+            this.skinContextMenuStrip1.ItemHover = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(148)))), ((int)(((byte)(212)))));
+            this.skinContextMenuStrip1.ItemPressed = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(148)))), ((int)(((byte)(212)))));
+            this.skinContextMenuStrip1.ItemRadius = 4;
+            this.skinContextMenuStrip1.ItemRadiusStyle = CCWin.SkinClass.RoundStyle.All;
+            this.skinContextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.openToolStripMenuItem,
+            this.editToolStripMenuItem});
+            this.skinContextMenuStrip1.ItemSplitter = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(148)))), ((int)(((byte)(212)))));
+            this.skinContextMenuStrip1.Name = "skinContextMenuStrip1";
+            this.skinContextMenuStrip1.RadiusStyle = CCWin.SkinClass.RoundStyle.All;
+            this.skinContextMenuStrip1.Size = new System.Drawing.Size(153, 70);
+            this.skinContextMenuStrip1.SkinAllColor = true;
+            this.skinContextMenuStrip1.TitleAnamorphosis = true;
+            this.skinContextMenuStrip1.TitleColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(228)))), ((int)(((byte)(236)))));
+            this.skinContextMenuStrip1.TitleRadius = 4;
+            this.skinContextMenuStrip1.TitleRadiusStyle = CCWin.SkinClass.RoundStyle.All;
+            // 
+            // openToolStripMenuItem
+            // 
+            this.openToolStripMenuItem.Name = "openToolStripMenuItem";
+            this.openToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.openToolStripMenuItem.Text = "Open Folder";
+            this.openToolStripMenuItem.Click += new System.EventHandler(this.openToolStripMenuItem_Click);
+            // 
+            // editToolStripMenuItem
+            // 
+            this.editToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.editCategoryToolStripMenuItem});
+            this.editToolStripMenuItem.Name = "editToolStripMenuItem";
+            this.editToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.editToolStripMenuItem.Text = "Edit";
+            // 
+            // editCategoryToolStripMenuItem
+            // 
+            this.editCategoryToolStripMenuItem.Name = "editCategoryToolStripMenuItem";
+            this.editCategoryToolStripMenuItem.Size = new System.Drawing.Size(187, 22);
+            this.editCategoryToolStripMenuItem.Text = "Edit File\'s Category";
+            this.editCategoryToolStripMenuItem.Click += new System.EventHandler(this.editCategoryToolStripMenuItem_Click);
+            // 
             // UCFileListView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -50,6 +106,7 @@
             this.Controls.Add(this.skinLV);
             this.Name = "UCFileListView";
             this.Size = new System.Drawing.Size(400, 300);
+            this.skinContextMenuStrip1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -57,5 +114,9 @@
         #endregion
 
         private CCWin.SkinControl.SkinListView skinLV;
+        private CCWin.SkinControl.SkinContextMenuStrip skinContextMenuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem openToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem editToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem editCategoryToolStripMenuItem;
     }
 }
