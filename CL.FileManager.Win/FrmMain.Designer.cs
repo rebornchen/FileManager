@@ -31,13 +31,13 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmMain));
             this.skinMenuStrip1 = new CCWin.SkinControl.SkinMenuStrip();
             this.FileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.导入ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.导出ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.importToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.exportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ExitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.SettingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.CategoryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.设置路径ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.操作ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.actionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.文件检查ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.skinPnlBottom = new CCWin.SkinControl.SkinPanel();
             this.skinPnlCategory = new Win.Controls.ControlCategoryWithDel();
@@ -91,7 +91,7 @@
             this.skinMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.FileToolStripMenuItem,
             this.SettingsToolStripMenuItem,
-            this.操作ToolStripMenuItem});
+            this.actionsToolStripMenuItem});
             this.skinMenuStrip1.Location = new System.Drawing.Point(4, 28);
             this.skinMenuStrip1.Name = "skinMenuStrip1";
             this.skinMenuStrip1.RadiusStyle = CCWin.SkinClass.RoundStyle.All;
@@ -107,25 +107,25 @@
             // FileToolStripMenuItem
             // 
             this.FileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.导入ToolStripMenuItem,
-            this.导出ToolStripMenuItem,
+            this.importToolStripMenuItem,
+            this.exportToolStripMenuItem,
             this.ExitToolStripMenuItem});
             this.FileToolStripMenuItem.Name = "FileToolStripMenuItem";
             this.FileToolStripMenuItem.Size = new System.Drawing.Size(44, 21);
             this.FileToolStripMenuItem.Text = "文件";
             // 
-            // 导入ToolStripMenuItem
+            // importToolStripMenuItem
             // 
-            this.导入ToolStripMenuItem.Name = "导入ToolStripMenuItem";
-            this.导入ToolStripMenuItem.Size = new System.Drawing.Size(100, 22);
-            this.导入ToolStripMenuItem.Text = "导入";
-            this.导入ToolStripMenuItem.Click += new System.EventHandler(this.导入ToolStripMenuItem_Click);
+            this.importToolStripMenuItem.Name = "importToolStripMenuItem";
+            this.importToolStripMenuItem.Size = new System.Drawing.Size(100, 22);
+            this.importToolStripMenuItem.Text = "Import";
+            this.importToolStripMenuItem.Click += new System.EventHandler(this.importToolStripMenuItem_Click);
             // 
             // 导出ToolStripMenuItem
             // 
-            this.导出ToolStripMenuItem.Name = "导出ToolStripMenuItem";
-            this.导出ToolStripMenuItem.Size = new System.Drawing.Size(100, 22);
-            this.导出ToolStripMenuItem.Text = "导出";
+            this.exportToolStripMenuItem.Name = "导出ToolStripMenuItem";
+            this.exportToolStripMenuItem.Size = new System.Drawing.Size(100, 22);
+            this.exportToolStripMenuItem.Text = "导出";
             // 
             // ExitToolStripMenuItem
             // 
@@ -158,11 +158,11 @@
             // 
             // 操作ToolStripMenuItem
             // 
-            this.操作ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.actionsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.文件检查ToolStripMenuItem});
-            this.操作ToolStripMenuItem.Name = "操作ToolStripMenuItem";
-            this.操作ToolStripMenuItem.Size = new System.Drawing.Size(44, 21);
-            this.操作ToolStripMenuItem.Text = "操作";
+            this.actionsToolStripMenuItem.Name = "操作ToolStripMenuItem";
+            this.actionsToolStripMenuItem.Size = new System.Drawing.Size(44, 21);
+            this.actionsToolStripMenuItem.Text = "操作";
             // 
             // 文件检查ToolStripMenuItem
             // 
@@ -299,10 +299,10 @@
         private System.Windows.Forms.ToolStripMenuItem SettingsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem CategoryToolStripMenuItem;
         private Controls.ControlCategory controlCategory1;
-        private System.Windows.Forms.ToolStripMenuItem 导入ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem 导出ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem importToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem exportToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 设置路径ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem 操作ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem actionsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 文件检查ToolStripMenuItem;
         private CCWin.SkinControl.SkinLabel lblMessage;
         private Controls.ControlCategoryWithDel skinPnlCategory;

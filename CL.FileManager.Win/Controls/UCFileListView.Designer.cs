@@ -28,7 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.skinLV = new CCWin.SkinControl.SkinListView();
+            this.imageListSmall = new System.Windows.Forms.ImageList(this.components);
+            this.imageListLarge = new System.Windows.Forms.ImageList(this.components);
             this.skinContextMenuStrip1 = new CCWin.SkinControl.SkinContextMenuStrip();
             this.openToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.editToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -40,10 +43,12 @@
             // 
             this.skinLV.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.skinLV.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.skinLV.LargeImageList = this.imageListLarge;
             this.skinLV.Location = new System.Drawing.Point(0, 0);
             this.skinLV.Name = "skinLV";
             this.skinLV.OwnerDraw = true;
             this.skinLV.Size = new System.Drawing.Size(400, 300);
+            this.skinLV.SmallImageList = this.imageListSmall;
             this.skinLV.TabIndex = 0;
             this.skinLV.UseCompatibleStateImageBehavior = false;
             this.skinLV.View = System.Windows.Forms.View.Tile;
@@ -99,6 +104,18 @@
             this.editCategoryToolStripMenuItem.Text = "Edit File\'s Category";
             this.editCategoryToolStripMenuItem.Click += new System.EventHandler(this.editCategoryToolStripMenuItem_Click);
             // 
+            // imageListSmall
+            // 
+            this.imageListSmall.ColorDepth = System.Windows.Forms.ColorDepth.Depth8Bit;
+            this.imageListSmall.ImageSize = new System.Drawing.Size(16, 16);
+            this.imageListSmall.TransparentColor = System.Drawing.Color.Transparent;
+            // 
+            // imageListLarge
+            // 
+            this.imageListLarge.ColorDepth = System.Windows.Forms.ColorDepth.Depth8Bit;
+            this.imageListLarge.ImageSize = new System.Drawing.Size(16, 16);
+            this.imageListLarge.TransparentColor = System.Drawing.Color.Transparent;
+            // 
             // UCFileListView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -118,5 +135,7 @@
         private System.Windows.Forms.ToolStripMenuItem openToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem editToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem editCategoryToolStripMenuItem;
+        private System.Windows.Forms.ImageList imageListSmall;
+        private System.Windows.Forms.ImageList imageListLarge;
     }
 }

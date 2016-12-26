@@ -53,13 +53,19 @@
     <Compile Include="Base.cs" />
     <Compile Include="CategoryBiz.cs" />
     <Compile Include="ConfigBiz.cs" />
+    <Compile Include="UILogic\DirPath\CategoryRule.cs" />
+    <Compile Include="UILogic\DirPath\DateRule.cs" />
+    <Compile Include="UILogic\DirPath\DirPathRule.cs" />
+    <Compile Include="UILogic\Enums.cs" />
     <Compile Include="FileCategoryRelationsBiz.cs" />
+    <Compile Include="UILogic\FileCompare.cs" />
     <Compile Include="FilesBiz.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RegionBiz.cs" />
     <Compile Include="RSSNEmailBiz.cs" />
     <Compile Include="SSNBiz.cs" />
     <Compile Include="SSNEmailBiz.cs" />
+    <Compile Include="UILogic\UILogic.cs" />
     <Compile Include="UsersBiz.cs" />
   </ItemGroup>
   <ItemGroup>

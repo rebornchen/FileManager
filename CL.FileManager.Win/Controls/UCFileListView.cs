@@ -103,6 +103,18 @@ namespace CL.FileManager.Win.Controls
             List<int> fileIdList = fcrList.Select(f => f.IFId).Distinct().ToList();
             var files = GetFiles(fileIdList);
 
+            //处理图像列表
+            var fileExtends = files.Select(f => f.CExtention).Distinct();
+            foreach(string extend in fileExtends)
+            {
+                if(imageListLarge.Images.Keys.Contains(extend))
+                {
+                    continue;
+                }
+                imageListLarge.Images.Add(extend, CL.Common.Commons.FileSysIcon.GetIcon(extend, true));
+                imageListSmall.Images.Add(extend, CL.Common.Commons.FileSysIcon.GetIcon(extend, false));
+            }
+
             //
             // 加载文件到组中
             //
@@ -152,6 +164,8 @@ namespace CL.FileManager.Win.Controls
                 listItem.ToolTipText = item.CFullName;
                 listItem.Tag = item;
                 
+                listItem.ImageKey = item.CExtention;
+
                 skinLV.Items.Add(listItem);
             }
         }
