@@ -164,10 +164,6 @@
       <Project>{98c38ab5-4e51-421a-91bb-b88ffc5f3041}</Project>
       <Name>CL.Model</Name>
     </ProjectReference>
-    <ProjectReference Include="..\CL.UI.Logic\CL.UI.Logic.csproj">
-      <Project>{b21e026a-9a54-4113-8c0f-1fe9b00184ff}</Project>
-      <Name>CL.UI.Logic</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

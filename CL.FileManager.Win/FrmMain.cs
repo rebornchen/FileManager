@@ -47,8 +47,10 @@ namespace CL.FileManager.Win
         }
         #endregion
 
-        private void 导入ToolStripMenuItem_Click(object sender, EventArgs e)
+        private void importToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            FrmImport frmImport = new FrmImport();
+            frmImport.ShowDialog(this);
             //UILogic.GetFileModelByFilePath()
         }
 

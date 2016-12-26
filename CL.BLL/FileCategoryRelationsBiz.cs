@@ -65,6 +65,24 @@ namespace CL.BLL
             }
             return result;
         }
+
+        /// <summary>
+        /// 添加类型和文件关联关系
+        /// </summary>
+        /// <param name="c"></param>
+        /// <param name="file"></param>
+        public void Add(Category c, Files file)
+        {
+            var list = GetList(r => r.IFId == file.IFId && r.ICId == c.ICId);
+            if(list.Count > 0)
+            {
+                return;
+            }
+            FileCategoryRelations relation = new FileCategoryRelations();
+            relation.ICId = c.ICId;
+            relation.IFId = file.IFId;
+            base.Add(relation);
+        }
     }
 }
 
