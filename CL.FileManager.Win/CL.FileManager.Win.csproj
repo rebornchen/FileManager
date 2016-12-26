@@ -160,6 +160,10 @@
       <Project>{f1512004-718e-4b34-9e54-6150abe8b20a}</Project>
       <Name>CL.BLL</Name>
     </ProjectReference>
+    <ProjectReference Include="..\CL.Common\CL.Common.csproj">
+      <Project>{5a9ccbb7-cdce-444a-b9c6-91969f52bac8}</Project>
+      <Name>CL.Common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\CL.Model\CL.Model.csproj">
       <Project>{98c38ab5-4e51-421a-91bb-b88ffc5f3041}</Project>
       <Name>CL.Model</Name>

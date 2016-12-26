@@ -87,6 +87,7 @@
     <Compile Include="Commons\ConvertHelper.cs" />
     <Compile Include="Commons\Directory.cs" />
     <Compile Include="Commons\FileIOHelper.cs" />
+    <Compile Include="Commons\FileSysIcon.cs" />
     <Compile Include="Commons\HttpHelper.cs" />
     <Compile Include="Commons\Lazy.cs" />
     <Compile Include="Commons\Processor.cs" />

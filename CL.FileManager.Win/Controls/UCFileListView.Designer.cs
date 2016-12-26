@@ -28,20 +28,37 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.skinLV = new CCWin.SkinControl.SkinListView();
+            this.imageListSmall = new System.Windows.Forms.ImageList(this.components);
+            this.imageListLarge = new System.Windows.Forms.ImageList(this.components);
             this.SuspendLayout();
             // 
             // skinLV
             // 
             this.skinLV.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.skinLV.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.skinLV.LargeImageList = this.imageListLarge;
             this.skinLV.Location = new System.Drawing.Point(0, 0);
             this.skinLV.Name = "skinLV";
             this.skinLV.OwnerDraw = true;
             this.skinLV.Size = new System.Drawing.Size(400, 300);
+            this.skinLV.SmallImageList = this.imageListSmall;
             this.skinLV.TabIndex = 0;
             this.skinLV.UseCompatibleStateImageBehavior = false;
             this.skinLV.View = System.Windows.Forms.View.Tile;
+            // 
+            // imageListSmall
+            // 
+            this.imageListSmall.ColorDepth = System.Windows.Forms.ColorDepth.Depth8Bit;
+            this.imageListSmall.ImageSize = new System.Drawing.Size(16, 16);
+            this.imageListSmall.TransparentColor = System.Drawing.Color.Transparent;
+            // 
+            // imageListLarge
+            // 
+            this.imageListLarge.ColorDepth = System.Windows.Forms.ColorDepth.Depth8Bit;
+            this.imageListLarge.ImageSize = new System.Drawing.Size(16, 16);
+            this.imageListLarge.TransparentColor = System.Drawing.Color.Transparent;
             // 
             // UCFileListView
             // 
@@ -57,5 +74,7 @@
         #endregion
 
         private CCWin.SkinControl.SkinListView skinLV;
+        private System.Windows.Forms.ImageList imageListSmall;
+        private System.Windows.Forms.ImageList imageListLarge;
     }
 }
