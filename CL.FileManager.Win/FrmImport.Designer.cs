@@ -32,8 +32,8 @@
             this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
             this.txtDirectory = new CCWin.SkinControl.SkinTextBox();
             this.lblDirectory = new CCWin.SkinControl.SkinLabel();
+            this.btnBrownse = new CCWin.SkinControl.SkinButton();
             this.btnImport = new CCWin.SkinControl.SkinButton();
-            this.btnOK = new CCWin.SkinControl.SkinButton();
             this.btnCancel = new CCWin.SkinControl.SkinButton();
             this.skinProgressBar1 = new CCWin.SkinControl.SkinProgressBar();
             this.lblImportInfo = new CCWin.SkinControl.SkinLabel();
@@ -80,7 +80,6 @@
             this.txtDirectory.WaterColor = System.Drawing.Color.FromArgb(((int)(((byte)(127)))), ((int)(((byte)(127)))), ((int)(((byte)(127)))));
             this.txtDirectory.WaterText = "";
             this.txtDirectory.WordWrap = true;
-            this.txtDirectory.Click += new System.EventHandler(this.txtDirectory_Click);
             // 
             // lblDirectory
             // 
@@ -94,35 +93,35 @@
             this.lblDirectory.TabIndex = 2;
             this.lblDirectory.Text = "Directory:";
             // 
+            // btnBrownse
+            // 
+            this.btnBrownse.BackColor = System.Drawing.Color.Transparent;
+            this.btnBrownse.ControlState = CCWin.SkinClass.ControlState.Normal;
+            this.btnBrownse.DownBack = null;
+            this.btnBrownse.Location = new System.Drawing.Point(479, 56);
+            this.btnBrownse.MouseBack = null;
+            this.btnBrownse.Name = "btnBrownse";
+            this.btnBrownse.NormlBack = null;
+            this.btnBrownse.Size = new System.Drawing.Size(75, 23);
+            this.btnBrownse.TabIndex = 3;
+            this.btnBrownse.Text = "Brownse";
+            this.btnBrownse.UseVisualStyleBackColor = false;
+            this.btnBrownse.Click += new System.EventHandler(this.btnBrownse_Click);
+            // 
             // btnImport
             // 
             this.btnImport.BackColor = System.Drawing.Color.Transparent;
             this.btnImport.ControlState = CCWin.SkinClass.ControlState.Normal;
             this.btnImport.DownBack = null;
-            this.btnImport.Location = new System.Drawing.Point(479, 56);
+            this.btnImport.Location = new System.Drawing.Point(377, 177);
             this.btnImport.MouseBack = null;
             this.btnImport.Name = "btnImport";
             this.btnImport.NormlBack = null;
             this.btnImport.Size = new System.Drawing.Size(75, 23);
-            this.btnImport.TabIndex = 3;
+            this.btnImport.TabIndex = 4;
             this.btnImport.Text = "Import";
             this.btnImport.UseVisualStyleBackColor = false;
             this.btnImport.Click += new System.EventHandler(this.btnImport_Click);
-            // 
-            // btnOK
-            // 
-            this.btnOK.BackColor = System.Drawing.Color.Transparent;
-            this.btnOK.ControlState = CCWin.SkinClass.ControlState.Normal;
-            this.btnOK.DownBack = null;
-            this.btnOK.Location = new System.Drawing.Point(377, 177);
-            this.btnOK.MouseBack = null;
-            this.btnOK.Name = "btnOK";
-            this.btnOK.NormlBack = null;
-            this.btnOK.Size = new System.Drawing.Size(75, 23);
-            this.btnOK.TabIndex = 4;
-            this.btnOK.Text = "OK";
-            this.btnOK.UseVisualStyleBackColor = false;
-            this.btnOK.Click += new System.EventHandler(this.btnOK_Click);
             // 
             // btnCancel
             // 
@@ -184,11 +183,12 @@
             this.Controls.Add(this.lblImportInfo);
             this.Controls.Add(this.skinProgressBar1);
             this.Controls.Add(this.btnCancel);
-            this.Controls.Add(this.btnOK);
             this.Controls.Add(this.btnImport);
+            this.Controls.Add(this.btnBrownse);
             this.Controls.Add(this.lblDirectory);
             this.Controls.Add(this.txtDirectory);
             this.Name = "FrmImport";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Import";
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -200,8 +200,8 @@
         private System.Windows.Forms.FolderBrowserDialog folderBrowserDialog1;
         private CCWin.SkinControl.SkinTextBox txtDirectory;
         private CCWin.SkinControl.SkinLabel lblDirectory;
+        private CCWin.SkinControl.SkinButton btnBrownse;
         private CCWin.SkinControl.SkinButton btnImport;
-        private CCWin.SkinControl.SkinButton btnOK;
         private CCWin.SkinControl.SkinButton btnCancel;
         private CCWin.SkinControl.SkinProgressBar skinProgressBar1;
         private CCWin.SkinControl.SkinLabel lblImportInfo;

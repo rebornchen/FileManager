@@ -186,9 +186,12 @@ namespace CL.UI.Logic
         /// <returns></returns>
         public static string[] GetDirNames(string filePath, string mainDirPath)
         {
-            string dirStr = System.IO.Path.GetDirectoryName(filePath).Replace(mainDirPath, String.Empty);
+            string dirStr = System.IO.Directory.Exists(filePath) 
+                ? filePath.Replace(mainDirPath, String.Empty)
+                : System.IO.Path.GetDirectoryName(filePath).Replace(mainDirPath, String.Empty);
             dirStr = dirStr.Length > 0 && dirStr[0] == '\\' ? dirStr.Substring(1) : dirStr;
-            return dirStr.Split('\\');
+            string [] tempArr = dirStr.Split('\\');
+            return tempArr.Where(str => str.Trim() != String.Empty).ToArray();
         }
 
         /// <summary>
@@ -198,7 +201,13 @@ namespace CL.UI.Logic
         /// <returns></returns>
         public static string[] GetDirNames(string mainDirPath)
         {
-            return CL.Common.Commons.FileIOHelper.GetDirectories(mainDirPath, "*", true);
+            string [] dirArr = CL.Common.Commons.FileIOHelper.GetDirectories(mainDirPath, "*", true);
+            List<string> result = new List<string>();
+            foreach (var item in dirArr)
+            {
+                result.AddRange(GetDirNames(item, mainDirPath));
+            }
+            return result.Distinct().ToArray();
         }
 
         /// <summary>

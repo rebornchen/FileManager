@@ -6,23 +6,117 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Windows.Forms;
 
 namespace CL.FileManager.Win
 {
     public partial class FrmImport : BaseForm
     {
+        #region 更新界面-线程处理
+        #region 委托定义
+        /// <summary>
+        /// 更新信息文本
+        /// </summary>
+        /// <param name="text"></param>
+        delegate void UpdateImportInfoTextHandler(object text);
+        /// <summary>
+        /// 更新进度条
+        /// </summary>
+        /// <param name="progress"></param>
+        delegate void UpdateProgressBarHandler(object progress);
+        #endregion 委托定义
+        
+        #region 信息文本线程处理
+        /// <summary>
+        /// 设置导入信息文本线程
+        /// </summary>
+        /// <param name="text"></param>
+        private void StartImportInfoText(string text)
+        {
+            Thread t = new Thread(new ParameterizedThreadStart(SetImportInfoTextInvoke));
+            t.Start(text);
+        }
 
+        /// <summary>
+        /// 设置导入信息文本线程方法
+        /// </summary>
+        /// <param name="text"></param>
+        private void SetImportInfoTextInvoke(object text)
+        {
+            if(lblImportInfo.InvokeRequired)
+            {
+                UpdateImportInfoTextHandler d = new UpdateImportInfoTextHandler(SetImportInfoText);
+                lblImportInfo.Invoke(d, text);
+            }
+            else
+            {
+                lblImportInfo.Text = (string)text;
+            }
+
+        }
+
+        /// <summary>
+        /// 设置导入信息文本线程委托方法
+        /// </summary>
+        /// <param name="text"></param>
+        private void SetImportInfoText(object text)
+        {
+            lblImportInfo.Text = (string)text;
+        }
+        #endregion
+
+        #region 进度条线程处理
+        /// <summary>
+        /// 设置进度条值线程
+        /// </summary>
+        /// <param name="text"></param>
+        private void StartUpdateProgressBar(int progress)
+        {
+            Thread t = new Thread(new ParameterizedThreadStart(UpdateProgressBarInvoke));
+            t.Start(progress);
+        }
+
+        /// <summary>
+        /// 设置进度条值线程方法
+        /// </summary>
+        /// <param name="text"></param>
+        private void UpdateProgressBarInvoke(object progress)
+        {
+            if (skinProgressBar1.InvokeRequired)
+            {
+                UpdateProgressBarHandler d = new UpdateProgressBarHandler(UpdateProgressBar);
+                skinProgressBar1.Invoke(d, progress);
+            }
+            else
+            {
+                skinProgressBar1.Value = (int)progress;
+            }
+        }
+
+        /// <summary>
+        /// 设置进度条值线程委托方法
+        /// </summary>
+        /// <param name="text"></param>
+        private void UpdateProgressBar(object progress)
+        {
+            skinProgressBar1.Value = (int)progress;
+        }
+        #endregion 进度条线程处理
+        #endregion 更新界面-线程处理
+        
         #region 私有变量-bll 对象
         private BLL.FileCategoryRelationsBiz fileCategoryRelationsBiz = new BLL.FileCategoryRelationsBiz();
         private BLL.CategoryBiz categoryBiz = new BLL.CategoryBiz();
         private BLL.FilesBiz fileBiz = new BLL.FilesBiz();
         #endregion 私有变量-bll 对象
 
+        #region 构造方法
         public FrmImport()
         {
             InitializeComponent();
         }
+        #endregion
 
         #region 按钮事件
         /// <summary>
@@ -32,64 +126,55 @@ namespace CL.FileManager.Win
         /// <param name="e"></param>
         private void btnImport_Click(object sender, EventArgs e)
         {
-            if(CL.Common.Commons.FileIOHelper.IsExistDirectory(txtDirectory.Text))
-            {
-                lblVal.Text = String.Empty;
-                Import(txtDirectory.Text);
-            }
-            else
-            {
-                lblVal.Text = "Directory is not exists.";
-            }
-
+            string path = txtDirectory.Text.Trim();
+            Import(path);
         }
-
-        private void btnOK_Click(object sender, EventArgs e)
-        {
-
-        }
-
+        /// <summary>
+        /// 取消按钮
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnCancel_Click(object sender, EventArgs e)
         {
             this.Close();
         }
-        #endregion 按钮事件
 
-        #region 文本框事件
         /// <summary>
-        /// 双击事件
+        /// 浏览按钮点击事件
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void txtDirectory_DoubleClick(object sender, EventArgs e)
+        private void btnBrownse_Click(object sender, EventArgs e)
         {
-
+            this.folderBrowserDialog1.ShowDialog(this);
+            txtDirectory.Text = this.folderBrowserDialog1.SelectedPath;
         }
-        #endregion
+        #endregion 按钮事件
 
+        #region 导入逻辑方法
         private void Import(string mainDirPath)
         {
-            SetImportInfoText("Initial Import Info...");
-            skinProgressBar1.Value = 5;
+            StartImportInfoText("Initial Import Info...");
+            StartUpdateProgressBar(5);
             string[] dirArr = CL.UI.Logic.UILogic.GetDirNames(mainDirPath);
             string[] filesArr = CL.UI.Logic.UILogic.GetFilePath(mainDirPath);
 
-            SetImportInfoText("正在导入类型信息...");
+            StartImportInfoText("正在导入类型信息...");
             List<Category> categories= categoryBiz.GetCategories(dirArr.ToList());
-            skinProgressBar1.Value = 25;
+            StartUpdateProgressBar(25);
 
-            SetImportInfoText("正在导入文件信息...");
+            StartImportInfoText("正在导入文件信...");
             List<Files> files = fileBiz.GetFiles(filesArr.ToList());
-            skinProgressBar1.Value = 60;
+            StartUpdateProgressBar(60);
 
-            SetImportInfoText("正在建立文件关联...");
+            StartImportInfoText("正在建立文件关联...");
             //添加文件类型关联
             foreach (var item in files)
             {
                 SaveRelations(item, categories, mainDirPath);
             }
-            skinProgressBar1.Value = 100;
-            SetImportInfoText("Import Finished.");
+            StartUpdateProgressBar(100);
+            StartImportInfoText("Import Finished.");
         }
 
         /// <summary>
@@ -110,19 +195,9 @@ namespace CL.FileManager.Win
             }
         }
 
-        /// <summary>
-        /// 设置导入信息文本
-        /// </summary>
-        /// <param name="text"></param>
-        private void SetImportInfoText(string text)
-        {
-            lblImportInfo.Text = text;
-        }
 
-        private void txtDirectory_Click(object sender, EventArgs e)
-        {
-            this.folderBrowserDialog1.ShowDialog(this);
-            txtDirectory.Text = this.folderBrowserDialog1.SelectedPath;
-        }
+        #endregion 导入逻辑方法
+
+
     }
 }
