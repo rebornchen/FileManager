@@ -30,8 +30,8 @@
         {
             this.components = new System.ComponentModel.Container();
             this.skinLV = new CCWin.SkinControl.SkinListView();
-            this.imageListSmall = new System.Windows.Forms.ImageList(this.components);
             this.imageListLarge = new System.Windows.Forms.ImageList(this.components);
+            this.imageListSmall = new System.Windows.Forms.ImageList(this.components);
             this.skinContextMenuStrip1 = new CCWin.SkinControl.SkinContextMenuStrip();
             this.openToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.editToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -51,7 +51,18 @@
             this.skinLV.SmallImageList = this.imageListSmall;
             this.skinLV.TabIndex = 0;
             this.skinLV.UseCompatibleStateImageBehavior = false;
-            this.skinLV.View = System.Windows.Forms.View.Tile;
+            // 
+            // imageListLarge
+            // 
+            this.imageListLarge.ColorDepth = System.Windows.Forms.ColorDepth.Depth8Bit;
+            this.imageListLarge.ImageSize = new System.Drawing.Size(16, 16);
+            this.imageListLarge.TransparentColor = System.Drawing.Color.Transparent;
+            // 
+            // imageListSmall
+            // 
+            this.imageListSmall.ColorDepth = System.Windows.Forms.ColorDepth.Depth8Bit;
+            this.imageListSmall.ImageSize = new System.Drawing.Size(16, 16);
+            this.imageListSmall.TransparentColor = System.Drawing.Color.Transparent;
             // 
             // skinContextMenuStrip1
             // 
@@ -75,7 +86,7 @@
             this.skinContextMenuStrip1.ItemSplitter = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(148)))), ((int)(((byte)(212)))));
             this.skinContextMenuStrip1.Name = "skinContextMenuStrip1";
             this.skinContextMenuStrip1.RadiusStyle = CCWin.SkinClass.RoundStyle.All;
-            this.skinContextMenuStrip1.Size = new System.Drawing.Size(153, 70);
+            this.skinContextMenuStrip1.Size = new System.Drawing.Size(150, 48);
             this.skinContextMenuStrip1.SkinAllColor = true;
             this.skinContextMenuStrip1.TitleAnamorphosis = true;
             this.skinContextMenuStrip1.TitleColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(228)))), ((int)(((byte)(236)))));
@@ -85,7 +96,7 @@
             // openToolStripMenuItem
             // 
             this.openToolStripMenuItem.Name = "openToolStripMenuItem";
-            this.openToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.openToolStripMenuItem.Size = new System.Drawing.Size(149, 22);
             this.openToolStripMenuItem.Text = "Open Folder";
             this.openToolStripMenuItem.Click += new System.EventHandler(this.openToolStripMenuItem_Click);
             // 
@@ -94,7 +105,7 @@
             this.editToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.editCategoryToolStripMenuItem});
             this.editToolStripMenuItem.Name = "editToolStripMenuItem";
-            this.editToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.editToolStripMenuItem.Size = new System.Drawing.Size(149, 22);
             this.editToolStripMenuItem.Text = "Edit";
             // 
             // editCategoryToolStripMenuItem
@@ -103,18 +114,6 @@
             this.editCategoryToolStripMenuItem.Size = new System.Drawing.Size(187, 22);
             this.editCategoryToolStripMenuItem.Text = "Edit File\'s Category";
             this.editCategoryToolStripMenuItem.Click += new System.EventHandler(this.editCategoryToolStripMenuItem_Click);
-            // 
-            // imageListSmall
-            // 
-            this.imageListSmall.ColorDepth = System.Windows.Forms.ColorDepth.Depth8Bit;
-            this.imageListSmall.ImageSize = new System.Drawing.Size(16, 16);
-            this.imageListSmall.TransparentColor = System.Drawing.Color.Transparent;
-            // 
-            // imageListLarge
-            // 
-            this.imageListLarge.ColorDepth = System.Windows.Forms.ColorDepth.Depth8Bit;
-            this.imageListLarge.ImageSize = new System.Drawing.Size(16, 16);
-            this.imageListLarge.TransparentColor = System.Drawing.Color.Transparent;
             // 
             // UCFileListView
             // 

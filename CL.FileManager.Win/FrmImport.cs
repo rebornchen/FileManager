@@ -127,7 +127,9 @@ namespace CL.FileManager.Win
         private void btnImport_Click(object sender, EventArgs e)
         {
             string path = txtDirectory.Text.Trim();
-            Import(path);
+            Thread t = new Thread(new ParameterizedThreadStart(Import));
+            t.Start(path);
+            //Import(path);
         }
         /// <summary>
         /// 取消按钮
@@ -152,6 +154,10 @@ namespace CL.FileManager.Win
         #endregion 按钮事件
 
         #region 导入逻辑方法
+        private void Import(object arg)
+        {
+            Import(arg.ToString());
+        }
         private void Import(string mainDirPath)
         {
             StartImportInfoText("Initial Import Info...");
@@ -195,6 +201,28 @@ namespace CL.FileManager.Win
             }
         }
 
+        /// <summary>
+        /// 保存文件信息
+        /// </summary>
+        /// <param name="files"></param>
+        private void SaveFiles(List<Files> files)
+        {
+            //对文件进行去重
+            foreach(var item in files)
+            {
+                fileBiz.Add(item);
+            }
+        }
+
+        /// <summary>
+        /// 保存类型信息
+        /// </summary>
+        /// <param name="categories"></param>
+        private void SaveCategories(List<Category> categories)
+        {
+
+        }
+            
 
         #endregion 导入逻辑方法
 
